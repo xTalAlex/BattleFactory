@@ -1,0 +1,32 @@
+---
+import Layout from "@layouts/Layout.astro";
+import SquadForm from "@components/squads/SquadForm.vue";
+
+import countriesList from 'countries-list';
+const { countries } = countriesList;
+
+const locale = 'IT';
+---
+<Layout subtitle="Submit Your Squad">
+
+    <section class="relative py-12 text-gray-600 md:py-32 body-font">
+
+        <div class="absolute inset-0 bg-gray-300">
+            <div class="h-full w-full bg-fixed bg-cover bg-center bg-[url('/img/remoat_stadium.png')]">
+                <span
+                id="blackOverlay"
+                class="absolute w-full h-full bg-black opacity-70"
+                ></span> 
+            </div>
+        </div>
+
+        <div class="container flex px-5 py-20 mx-auto">
+            <SquadForm client:visible 
+                countries={countries}
+                locale={locale}    
+            />
+        </div>
+
+    </section>
+
+</Layout>

@@ -1,0 +1,97 @@
+---
+import Backdrop from "./Backdrop.astro";
+---
+
+<div x-cloak
+    x-data="{
+        title : '',
+        message : '',
+        link : '',
+        confirmText : 'Confirm',
+        cancelText : 'Close',
+        target : null,
+        visible : false,
+
+        callback(){
+
+        },
+        confirm(){
+            this.callback();
+            this.visible = false;
+        }
+    }"
+    x-init="
+        document.addEventListener('confirm', (e) => {
+            target = e.detail.target ? e.detail.target : null;
+            title = e.detail.title ? e.detail.title : '';
+            message = e.detail.message;
+            link = e.detail.link ? e.detail.link : '';
+            confirmText = e.detail.confirmText ? e.detail.confirmText : 'Confirm';
+            cancelText = e.detail.cancelText ? e.detail.cancelText : 'Close';
+            callback = e.detail.callback ? e.detail.callback : null;
+            visible = true;
+        });
+    "
+    x-show="visible"
+>
+
+    <Backdrop/>
+
+    <div class="fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none">
+        <div class="relative w-full max-w-md mx-4 my-6 sm:mx-auto sm:w-3/4 md:w-2/3 lg:w-1/2"
+            x-on:keydown.escape.window="visible = false"
+            x-on:click.outside="visible = false"
+        >
+            <!--content-->
+            <div class="relative flex flex-col w-full border-0 rounded-lg shadow-lg outline-none bg-primary-50 focus:outline-none">
+                <!--header-->
+                <div class="flex items-start justify-between p-5 text-gray-900 border-b border-solid rounded-t border-primary-200">
+                    <h3 class="text-3xl font-semibold"
+                        x-text="title"
+                    >
+                    </h3>
+                    <button class="z-50 float-right p-1 ml-auto text-3xl font-semibold leading-none bg-transparent border-0 outline-none text-secondary-500 focus:outline-none"
+                        x-on:click="visible=false"
+                    >
+                        <span class="block w-6 h-6 text-2xl bg-transparent outline-none focus:outline-none">
+                        x
+                        </span>
+                    </button>
+                </div>
+                <!--body-->
+                <div class="relative flex-auto p-6">
+                    <p class="my-4 text-lg leading-relaxed text-gray-500"
+                        x-text="message"
+                    >
+                    </p>
+                    <p class="w-2/3 overflow-hidden text-xs text-gray-500 whitespace-nowrap overflow-ellipsis"
+                        x-tooltip="link"
+                        x-sow="link" x-text="link"></p>
+                </div>
+                <!--footer-->
+                <div class="flex items-center justify-end p-6 border-t border-solid rounded-b border-slate-200">
+                    <button class="px-6 py-2 mb-1 mr-1 text-sm font-bold uppercase transition-all duration-150 ease-linear outline-none text-secondary-500 background-transparent focus:outline-none"
+                        type="button" 
+                        x-on:click="visible=false"
+                        x-text="cancelText"
+                    >
+                    </button>
+                    <button class="px-6 py-3 mb-1 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-primary-500 active:bg-primary-600 hover:shadow-lg focus:outline-none" 
+                        type="button" 
+                        x-on:click="confirm()"
+                        x-text="confirmText"
+                    >
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script is:inline>
+
+	document.askConfirmation = function askConfirmation(params){
+		document.dispatchEvent( new CustomEvent('confirm',  { "detail" : params }) )
+	}
+    
+</script>

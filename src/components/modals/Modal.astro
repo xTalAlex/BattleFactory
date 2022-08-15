@@ -1,0 +1,63 @@
+---
+import Backdrop from "./Backdrop.astro";
+
+export interface Props {
+  title : string,
+  cancelButton? : string,
+}
+
+const {title, cancelButton = 'Close'} = Astro.props;
+---
+<div x-cloak
+  x-data={`{
+    title : '${title}',
+    cancelButton : '${cancelButton}',
+    visible : false,
+  }`}
+  x-show="visible"
+>
+
+  <Backdrop/>
+
+  <div class="fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none">
+    <div class="relative w-full max-w-6xl mx-4 my-6 sm:mx-auto sm:w-3/4 md:w-2/3 lg:w-1/2"
+        x-on:keydown.escape.window="visible = false"
+        x-on:click.outside="visible = false"
+    >
+
+      <div class="relative flex flex-col w-full bg-primary-50 border-0 rounded-lg shadow-lg outline-none focus:outline-none">
+        
+        <div class="flex items-start justify-between p-5 border-b border-solid rounded-t border-primary-200 text-gray-900">
+            <h3 class="text-3xl font-semibold"
+                x-text="title"
+            ></h3>
+            <button class="z-50 float-right p-1 ml-auto text-3xl font-semibold leading-none text-secondary-500 bg-transparent border-0 outline-none focus:outline-none"
+              x-on:click="visible=false"
+            >
+                <span class="block w-6 h-6 text-2xl bg-transparent outline-none focus:outline-none">
+                x
+                </span>
+            </button>
+        </div>
+
+        <slot/>
+
+        <div class="flex items-center justify-end p-6 border-t border-solid rounded-b border-gray-200"
+        >
+            <button  type="button" class="px-6 py-2 mb-1 mr-1 text-sm font-bold text-secondary-500 uppercase transition-all duration-150 ease-linear outline-none background-transparent focus:outline-none" 
+              x-on:click="visible=false"
+              x-text="cancelButton"
+              x-show="cancelButton"
+              x-cloak
+            ></button>
+            
+            <slot name="confirmButton"/>
+        </div>
+        
+      </div>
+
+    </div>
+  </div>
+
+</div>
+

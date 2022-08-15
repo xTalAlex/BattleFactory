@@ -1,0 +1,48 @@
+---
+import SectionSeparator from "@components/SectionSeparator.astro";
+
+import videoHeader from '@assets/videos/video_header.mp4';
+---
+<div
+    class="relative pt-16 pb-32 flex content-center items-center justify-center"
+    style="min-height: 90vh;"
+>
+    <div
+        class="absolute top-0 w-full h-full bg-center bg-fixed bg-cover"
+        style='background-image: url("/img/remoat_stadium.png");'
+    >
+
+        <span
+            id="blackOverlay"
+            class="w-full z-10 h-full absolute opacity-70 bg-black"
+        ></span>
+        
+        <video class="absolute top-0 w-full h-full object-center  object-cover" autoplay loop muted>
+            <source src={videoHeader} type="video/mp4">
+        </video>
+    </div>
+    <div class="z-20 container relative mx-auto">
+        <div class="items-center flex flex-wrap">
+        <div class="w-full lg:w-6/12 px-4 mx-auto text-center">
+            <div class="px-4">
+                <h1 class="rounded-md text-5xl font-black bg-top bg-gradient-to-t text-transparent animate-wavepulse from-primary-500 to-secondary-500 bg-clip-text" 
+                            style="background-size: 100% 200%;"
+                >
+                    Battle Factory
+                </h1>
+                <p class="mt-4 text-lg text-gray-300">
+                    Play Pokemon Unite with your Squad.
+                </p>
+            </div>
+        </div>
+        </div>
+    </div>
+    
+    <img class="z-20 w-48 absolute -bottom-16 right-10" src="/img/unite_logo.png" />
+    <div
+        class="bottom-0 z-10 top-auto left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-32"
+        style="height: 70px;"
+    >
+        <SectionSeparator color="text-secondary-100"/>
+    </div>
+</div>
