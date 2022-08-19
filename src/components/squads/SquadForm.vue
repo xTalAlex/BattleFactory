@@ -273,16 +273,16 @@
                 });
 
                 const options = {
-                    headers : {
-                        "Content-Type": "application/json",
-                        "Accept": "application/json",
-                        "X-Requested-With": "XMLHttpRequest"
-                    },
+                    // headers : {
+                    //     "Content-Type": "application/json",
+                    //     "Accept": "application/json",
+                    //     "X-Requested-With": "XMLHttpRequest"
+                    // },
                     method : "POST",
                     body : JSON.stringify(bodyObject)
                 };
 
-                fetch('https://battle-factory-admin.herokuapp.com/api/squads', options)
+                fetch('/squads/post', options)
                     .then( response => {
                         if(response.ok)
                         {

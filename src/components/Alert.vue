@@ -45,7 +45,7 @@
             </span>
 
             <div class="max-w-full pr-3 overflow-auto max-h-72">
-                <span class="font-bold capitalize" v-text="typeLabel"></span>
+                <span class="mr-1 font-bold capitalize" v-text="typeLabel"></span>
                 <span class="" v-text="message"></span>
             </div>
 
