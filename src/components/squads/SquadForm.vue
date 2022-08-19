@@ -206,7 +206,7 @@
                 email : '',
                 name : '',
                 code : '',
-                requires_approval : '',
+                requires_approval : false,
                 active_members : 1,
                 country : '',
                 selected_rank : '1200',

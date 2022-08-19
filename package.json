@@ -24,6 +24,7 @@
     "@astrojs/vue": "^1.0.0",
     "@ryangjchandler/alpine-tooltip": "^1.2.0",
     "alpinejs": "^3.10.3",
+    "animate.css": "^4.1.1",
     "astro-i18next": "^1.0.0-beta.3",
     "countries-list": "^2.6.1",
     "publitio_js_sdk": "^1.1.5",
