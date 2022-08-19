@@ -269,6 +269,7 @@
                 let bodyObject = {};
                 formData.forEach(function(value, key){
                     if(key == 'squad_name') key='name';
+                    if(key == 'country' && value ) value = value.toLowerCase();
                     bodyObject[key] = value;
                 });
 

@@ -2,7 +2,7 @@ export async function post({ request }) {
   const requestBody = await request.json();
 
 
-  const recaptchaURL = 'https://battle-factory-admin.herokuapp.com/api/squads';
+  const recaptchaURL = 'https://battlefactory-admin.herokuapp.com/api/squads';
   const response = await fetch(recaptchaURL, {
     headers : {
         "Content-Type": "application/json",

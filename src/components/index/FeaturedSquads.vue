@@ -45,12 +45,13 @@
 
         methods : {
             countryName(country){
-                return country ? this.countries[country].name : null;
+                if(country) this.countries[country.toUpperCase()];
+                return country ? country.name : null;
             }
         },
 
         created() {
-            fetch("https://battle-factory-admin.herokuapp.com/api/squads")
+            fetch("https://battlefactory-admin.herokuapp.com/api/squads")
                 .then(response => response.json())
                 .then(result => this.squads = result.data);
         }
