@@ -1,6 +1,5 @@
 <template>
     <div class="fixed right-0 z-50 text-white top-1/3 md:top-1/4 min-w-fit"
-        v-cloak
     >
         <Transition
             enter-active-class="animate__animated animate__fadeInRight animate__faster"

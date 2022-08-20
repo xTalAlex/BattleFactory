@@ -30,7 +30,7 @@
                     <p class="font-medium line-clamp-6"
                         v-show="description"
                     >{{description}}</p>
-                    <img class="absolute inset-0 object-center h-full mx-auto opacity-10" :src="'/img/emblem.png'" />
+                    <img class="absolute inset-0 object-center h-full mx-auto opacity-10" src="@assets/images/emblem.png" />
                 </div>
 
                 <div class="flex items-center justify-between px-4 py-2 pt-2 text-xs transition rounded-md group-hover:bg-primary-200 bg-secondary-200">
@@ -98,6 +98,8 @@
 
 <script>
 
+    import {squad} from "@utils/squad.js";
+
     import Tooltip from '@components/Tooltip.vue';
     import RankIcon from '@components/icons/RankIcon.vue';
     import UsersGroupIcon from '@components/icons/UsersGroupIcon.vue';
@@ -110,44 +112,9 @@
             UsersGroupIcon,
         },
 
-        props: {
-            name : {
-                type: String,
-                required: true
-            },
-            code : {
-                type: String,
-                required: true
-            },
-            rank : {
-                type: String,
-                required: true
-            },
-            active_members : {
-                type: Number,
-                required: true
-            },
-            country : {
-                type: String,
-                required: false
-            },
-            country_name : {
-                type: String,
-                required: false
-            },
-            requires_approval : {
-                type: Boolean,
-                required: true
-            },
-            link : {
-                type: String,
-                required: false
-            },
-            description : {
-                type: String,
-                required: false
-            },
-        },
+        props: {},
+
+        mixins : [squad],
         
         data() {
             return {
@@ -155,13 +122,7 @@
         },
 
         computed: {
-            countryFlag() {
-                return this.country ? 'https://flagcdn.com/32x24/'+this.country.toLowerCase()+'.png' : '';
-            },
-
-            rankLabel(){
-                return this.rank>=1200 ? 'Master '+this.rank : (this.rank[0].toUpperCase() + this.rank.substring(1));
-            },
+            
         },
 
         methods: {

@@ -168,14 +168,15 @@
         
         <button type="button" class="px-6 py-2 text-lg text-white border-0 rounded disabled:bg-secondary-400 bg-secondary-500 focus:outline-none hover:bg-secondary-600"
             id="submitButton"
-            :disabled="submitting || ( name.length<3 || code.length<8 ) || Object.keys(errors).length>0"
-            @click="submit()"
+            :disabled="( name.length<3 || code.length<8 ) || Object.keys(errors).length>0"
+            @click.once="submit()"
         >Submit</button>
     </form>
 </template>
 
 <script>
 
+    import { RANKS } from '@utils/constants';
     import Tooltip from '@components/Tooltip.vue';
     import RankIcon from '@components/icons/RankIcon.vue';
     import UsersGroupIcon from '@components/icons/UsersGroupIcon.vue';
@@ -201,8 +202,7 @@
             return {
                 errors : {},
                 success : null,
-                submitting : false,
-                ranks : [],
+                ranks : RANKS,
                 email : '',
                 name : '',
                 code : '',
@@ -264,7 +264,6 @@
             },
 
             submit(){
-                this.submitting = true;
                 const formData = new FormData(document.getElementById('form'));
                 let bodyObject = {};
                 formData.forEach(function(value, key){
@@ -310,17 +309,11 @@
                         document.notify('error','Something went wrong. Submission not sent.');
                         // send to API Log
                     });
-                
-                this.submitting = false;
             }
             
         },
 
         mounted() {
-            this.ranks = [
-                'elite','expert','1200','1400','1800','2000'
-            ];
-
             this.country=this.locale;
         }
 

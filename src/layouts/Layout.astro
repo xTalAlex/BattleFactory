@@ -10,11 +10,11 @@ import 'animate.css';
 import {APP_NAME} from "@utils/constants";
 
 import Alert from "@components/Alert.vue";
-import Navbar from "@components/layout/Navbar.astro";
+import Navbar from "@components/layout/Navbar.vue";
 import Footer from "@components/layout/Footer.astro";
-import ConfirmationModal from "@components/modals/ConfirmationModal.astro";
+import ConfirmationModal from "@components/modals/ConfirmationModal.vue";
 
-//const ip = Astro.clientAddress;
+const ip = Astro.clientAddress;
 
 const { subtitle = '' } = Astro.props as Props;
 const full_title = APP_NAME + ( subtitle ? ' | ' + subtitle : '' );
@@ -35,18 +35,12 @@ const full_title = APP_NAME + ( subtitle ? ' | ' + subtitle : '' );
 		  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
 		/>
 
-		<script>
-			import Alpine from 'alpinejs';
-			import Tooltip from "@ryangjchandler/alpine-tooltip";
-			Alpine.plugin(Tooltip);
-			Alpine.start();
-		</script>
 	</head>
-	<body class="relative flex flex-col min-h-screen antialiased text-gray-800">
+	<body class="relative flex flex-col min-h-screen antialiased text-gray-800" id="app">
 
 		<Alert client:only="vue"/>
 		
-		<Navbar/>
+		<Navbar client:visible/>
 
 		<main class="flex-1 bg-secondary-100">
 
@@ -58,9 +52,9 @@ const full_title = APP_NAME + ( subtitle ? ' | ' + subtitle : '' );
 
 		<slot name="modals"/>
 
-		<ConfirmationModal/>
-
-	</body>
+		<ConfirmationModal client:only="vue"/>
+		
+	</body> 
 
 	<script is:inline>
 		document.notify = function notify(type,message)

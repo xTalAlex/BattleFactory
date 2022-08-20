@@ -15,15 +15,12 @@
     "@astrojs/tailwind": "^0.2.5",
     "@tailwindcss/forms": "^0.5.2",
     "@tailwindcss/line-clamp": "^0.4.0",
-    "@types/alpinejs": "^3.7.0",
     "astro": "^1.0.0-rc.2"
   },
   "dependencies": {
     "@astrojs/netlify": "^1.0.1",
     "@astrojs/node": "^1.0.0",
     "@astrojs/vue": "^1.0.0",
-    "@ryangjchandler/alpine-tooltip": "^1.2.0",
-    "alpinejs": "^3.10.3",
     "animate.css": "^4.1.1",
     "astro-i18next": "^1.0.0-beta.3",
     "countries-list": "^2.6.1",

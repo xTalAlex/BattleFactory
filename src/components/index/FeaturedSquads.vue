@@ -16,6 +16,7 @@
             <div class="flex flex-wrap justify-center">
                 <Card v-for="squad in squads" :key="squad.code"
                     v-bind="squad"
+                    :rank="squad.rank || ranks[0]"
                     :country_name="countryName(squad.country)"
                 />
             </div>
@@ -26,13 +27,13 @@
 
 <script>
 
+    import {RANKS} from '@utils/constants';
     import Card from '@components/Card.vue';
     import countriesList from 'countries-list';
 
     export default {
 
         components: {
-            countriesList,
             Card
         },
 
@@ -40,6 +41,7 @@
             return {
                 squads: [],
                 countries : countriesList.countries,
+                ranks : RANKS,
             }
         },
 

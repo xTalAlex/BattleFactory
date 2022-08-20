@@ -3,7 +3,7 @@ import Layout from "@layouts/Layout.astro";
 import Hero from "@components/index/Hero.astro";
 import FeaturedSquads from "@components/index/FeaturedSquads.vue";
 import CTA from "@components/index/CTA.astro";
-import SquadModal from "@components/modals/SquadModal.astro";
+import SquadModal from "@components/modals/SquadModal.vue";
 ---
 <Layout subtitle="Play Pokemon Unite with your Squad">
     
@@ -90,6 +90,6 @@ import SquadModal from "@components/modals/SquadModal.astro";
 
     <CTA />
 
-    <SquadModal slot="modals"/>
+    <SquadModal client:only="vue" slot="modals"/>
 
 </Layout>
