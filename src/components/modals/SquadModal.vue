@@ -1,6 +1,6 @@
 <template>
     <Modal
-        title="Squad Info"
+        :title="title"
         cancelButton=""
         :visible="visible"
         @close="visible=false"
@@ -12,8 +12,10 @@
                 v-text="code"></h2>
 
                 <!-- Verified -->
-                <template v-if="verified">  
-                    <VerifiedIcon/>
+                <template v-if="verified">
+                    <span title="Verified">  
+                        <VerifiedIcon class="ml-1 h-4 w-4" />
+                    </span>
                 </template>
             </div>
 
@@ -67,11 +69,11 @@
                         ></span>
                     </div>
         
-                    <div class="mt-2 text-sm text-gray-500">Active Members</div>
+                    <div class="mt-2 text-sm text-gray-500 text-center">Active Members</div>
                 </div>
 
                 <!-- Ranks -->
-                <div class="flex flex-col items-center justify-center w-40 h-20 transition-colors duration-100 ease-in-out border border-dashed rounded-md border-secondary-200 hover:border-secondary-400">
+                <div class="flex flex-col items-center justify-center w-40 py-4 transition-colors duration-100 ease-in-out border border-dashed rounded-md border-secondary-200 hover:border-secondary-400">
                     <div class="flex flex-row items-center justify-center">
                         <RankIcon 
                             :rank="rank"
@@ -79,7 +81,7 @@
                         />
                     </div>
         
-                    <div class="mt-2 text-sm text-gray-500"
+                    <div class="mt-2 text-sm text-gray-500 text-center"
                         v-text="rankLabel"
                     ></div>
                 </div>
@@ -89,13 +91,18 @@
                     <div class="flex flex-row items-center justify-center"
                         :class="{ 'text-success-500' : !requires_approval , 'text-warning-500' : requires_approval }"
                     >
-                        <ShieldIcon 
-                            :color="requires_approval ? 'text-red-500' : 'text-black'"
+                        <LockOpenIcon 
+                            class="h-6 w-6"
+                            v-if="!requires_approval"
+                        />
+                        <LockClosedIcon 
+                            class="h-6 w-6"
+                            v-else
                         />
                     </div>
         
-                    <div class="mt-2 text-sm text-gray-500"
-                        v-text="requires_approval ? 'Requires Approval' : 'No Approval Required'"
+                    <div class="mt-2 text-sm text-gray-500 text-center"
+                        v-text="requires_approval ? 'Requires Approval' : 'Open'"
                     ></div>
                 </div>
             </div>
@@ -122,7 +129,8 @@
     import RankIcon from "@components/icons/RankIcon.vue";
     import VerifiedIcon from "@components/icons/VerifiedIcon.vue";
     import UsersGroupIcon from "@components/icons/UsersGroupIcon.vue";
-    import ShieldIcon from "@components/icons/ShieldIcon.vue";
+    import LockOpenIcon from "@components/icons/LockOpenIcon.vue";
+    import LockClosedIcon from "@components/icons/LockClosedIcon.vue";
 
     export default {
 
@@ -135,7 +143,8 @@
             RankIcon,
             VerifiedIcon,
             UsersGroupIcon,
-            ShieldIcon,
+            LockOpenIcon,
+            LockClosedIcon,
         },
 
         mixins: [],
@@ -146,6 +155,7 @@
 
         data() {
             return {
+                title : "Squad Info",
                 visible : false,
                 name : '',
                 code : '',
@@ -157,6 +167,8 @@
                 active_members : 1,
                 rank : '',
                 requires_approval : false,
+                verified : false,
+                featured : false,
             }
         },
 
@@ -188,8 +200,10 @@
                 this.active_members = e.detail.active_members;
                 this.rank = e.detail.rank;
                 this.requires_approval = e.detail.requires_approval;
+                this.verified = e.detail.verified ? true : false;
+                this.featured = e.detail.featured ? true : false;
 
-                this.title = this.name;
+                this.title = this.name + " Info";
                 this.visible = true;
             });
         }

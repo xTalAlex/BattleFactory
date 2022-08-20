@@ -10,6 +10,8 @@
 
     export default {
 
+        name : "LinkIcon",
+
         props : {
             colors : {
                 type: String,

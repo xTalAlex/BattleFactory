@@ -46,8 +46,9 @@
         },
 
         methods : {
-            countryName(country){
-                if(country) this.countries[country.toUpperCase()];
+            countryName(code){
+                let country = null;
+                if(code) country = this.countries[code.toUpperCase()];
                 return country ? country.name : null;
             }
         },

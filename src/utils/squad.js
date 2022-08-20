@@ -40,6 +40,10 @@ export const squad = {
         verified : {
             type : Boolean,
             default : false,
+        },
+        featured : {
+            type : Boolean,
+            default : false,
         }
     },
 

@@ -28,7 +28,7 @@
                 :class="{ 'text-red-500' : errors.name }"
             >Squad Name <span class="text-red-500">*</span></label>
             <input type="text" class="w-full px-3 py-1 text-base leading-8 text-gray-700 transition-colors duration-200 ease-in-out bg-white border border-gray-300 rounded outline-none focus:border-secondary-500 focus:ring-2 focus:ring-secondary-200"
-                id="squad_name" name="squad_name" maxlength="20" 
+                id="squad_name" name="squad_name" maxlength="15" 
                 @change="delete errors.name"
                 v-model="name"
             >
@@ -41,7 +41,9 @@
                 :class="{ 'text-red-500' : errors.code }"
             >Code <span class="text-red-500">*</span></label>
             <input type="text" class="w-full px-3 py-1 text-base leading-8 text-gray-700 transition-colors duration-200 ease-in-out bg-white border border-gray-300 rounded outline-none focus:border-secondary-500 focus:ring-2 focus:ring-secondary-200"
-                id="code" name="code" maxlength="20" 
+                id="code" name="code" maxlength="9" 
+                placeholder="#"
+                @input="validateCode()"
                 @change="delete errors.code"
                 v-model="code"
             >
@@ -230,6 +232,13 @@
         },
 
         methods: {
+
+            validateCode()
+            {
+                if(this.code.length && this.code[0]!='#')
+                    this.code = '#'+this.code;
+                this.code = this.code.toUpperCase();
+            },
             
             validateActiveMembers()
             {

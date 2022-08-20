@@ -21,11 +21,14 @@
     "@astrojs/netlify": "^1.0.1",
     "@astrojs/node": "^1.0.0",
     "@astrojs/vue": "^1.0.0",
+    "algoliasearch": "^4.14.2",
     "animate.css": "^4.1.1",
     "astro-i18next": "^1.0.0-beta.3",
     "countries-list": "^2.6.1",
+    "instantsearch.js": "^4.44.0",
     "publitio_js_sdk": "^1.1.5",
     "tippy.js": "^6.3.7",
-    "vue": "^3.2.37"
+    "vue": "^3.2.37",
+    "vue-instantsearch": "^4.4.2"
   }
 }

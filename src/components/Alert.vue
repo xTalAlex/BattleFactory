@@ -24,7 +24,7 @@
             enter-to-class="opacity-100" 
             leave-active-class="animate__animated animate__fadeOut"
         >
-            <div id="bubble" class="relative py-4 pl-12 pr-8 rounded-lg shadow-xl w-72 sm:max-w-md sm:w-full right-28 sm:right-32 sm:top-6"
+            <div id="bubble" class="relative py-4 pl-12 pr-8 rounded-lg shadow-xl w-56 sm:max-w-md sm:w-full right-28 sm:right-32 sm:top-6"
                 :class="{
                     'bg-success-500' : type=='success',
                     'bg-warning-500' : type=='warning',
