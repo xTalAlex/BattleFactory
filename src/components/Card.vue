@@ -4,9 +4,10 @@
     >
         <div class="flex flex-col w-full h-full px-5 py-4 leading-6 text-gray-900 rounded-md bg-primary-100 focus:outline-none opacity-80">
             
-            <div class="w-full flex justify-between m-0 font-bold group-hover:text-primary-500 group-focus-within:text-primary-500 text-secondary-500 transtion-colors duration-75 ease-[cubic-bezier(0.22, 1, 0.36, 1)]">
-                <div class="cursor-pointer"
-                    @click="openSquadModal()"
+            <div class="w-full cursor-pointer flex justify-between m-0 font-bold group-hover:text-primary-500 group-focus-within:text-primary-500 text-secondary-500 transtion-colors duration-75 ease-[cubic-bezier(0.22, 1, 0.36, 1)]"
+                @click="openSquadModal()"
+            >
+                <div class=""
                 >
                     <img class="inline-block w-3 h-3 mr-1 -mt-4"
                         v-if="country"
@@ -21,22 +22,25 @@
                     </div>
                 </div>
 
-                <span class="cursor-pointer mr-1 group-hover:translate-x-0.5 group-focus-within:translate-x-0.5 inline-block transition-transform duration-75 ease-[cubic-bezier(0.22, 1, 0.36, 1)]"
+                <span class=" mr-1 group-hover:translate-x-0.5 group-focus-within:translate-x-0.5 inline-block transition-transform duration-75 ease-[cubic-bezier(0.22, 1, 0.36, 1)]"
                     :title="code"
-                    @click="openSquadModal()"
                 >
                     <Identification />
                 </span>
             </div>
 
-            <div class="relative flex-1 px-2 py-3 mb-0 text-sm">
+            <div class="relative flex-1 px-2 py-3 mb-0 text-sm cursor-pointer "
+                @click="openSquadModal()"
+            >
                 <p class="font-medium line-clamp-6"
                     v-show="description"
                 ><slot name="description">{{description}}</slot></p>
                 <img class="absolute inset-0 object-center h-full mx-auto opacity-10" src="@assets/images/emblem.png" />
             </div>
 
-            <div class="flex items-center justify-between px-4 py-2 pt-2 text-xs transition rounded-md group-hover:bg-primary-200 bg-secondary-200">
+            <div class="flex cursor-pointer items-center justify-between px-4 py-2 pt-2 text-xs transition rounded-md group-hover:bg-primary-200 bg-secondary-200"
+                @click="openSquadModal()"
+            >
                 <Tooltip client:visible
                     tooltip="Active Members"
                 >

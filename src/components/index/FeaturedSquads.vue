@@ -58,7 +58,7 @@
         created() {
             fetch("https://battlefactory-admin.herokuapp.com/api/squads")
                 .then(response => response.json())
-                .then(result => this.squads = result.data);
+                .then(result => this.squads = result.data.slice(0, 9));
         }
 
     };
