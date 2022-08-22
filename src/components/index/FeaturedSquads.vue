@@ -14,11 +14,13 @@
             </div>
 
             <div class="flex flex-wrap justify-center">
-                <Card v-for="squad in squads" :key="squad.code"
-                    v-bind="squad"
-                    :rank="squad.rank || ranks[0]"
-                    :country_name="countryName(squad.country)"
-                />
+                <div class="w-full px-4 mb-12 md:w-6/12 lg:w-4/12" v-for="squad in squads" :key="squad.code">
+                    <Card 
+                        v-bind="squad"
+                        :rank="squad.rank || ranks[0]"
+                        :country_name="countryName(squad.country)"
+                    />
+                </div>
             </div>
 
         </div>

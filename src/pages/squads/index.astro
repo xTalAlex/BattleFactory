@@ -1,6 +1,26 @@
 ---
 import Layout from "@layouts/Layout.astro";
----
-<Layout subtitle="Squads">
+import SquadModal from "@components/modals/SquadModal.vue";
+import InstantSearch from "@components/squads/InstantSearch.vue";
 
+const algolia_app_id = import.meta.env.ALGOLIA_APP_ID;
+const algolia_client = import.meta.env.ALGOLIA_CLIENT;
+
+---
+
+<Layout subtitle="Squads">
+    
+    <section class="relative py-32">
+        <div class="mx-12 lg:max-w-5xl lg:mx-auto">
+            
+            <InstantSearch client:only="vue"
+                algoliaAppId={algolia_app_id}
+                algoliaClient={algolia_client}
+            />
+                
+        </div>
+    </section>
+
+    <SquadModal client:only="vue" slot="modals"/>
+    
 </Layout>
