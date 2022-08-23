@@ -9,16 +9,22 @@
             >
                 <div class=""
                 >
-                    <img class="inline-block w-3 h-3 mr-1 -mt-4"
+                    <img class="inline-block w-3 h-3 mr-1 -mt-1"
                         v-if="country"
                         :src="countryFlag"
                         :alt="country_name"
                         :title="country_name"
                     />
-                    <div class="inline-block overflow-hidden max-w-3/4 text-ellipsis " 
+                    <div class="inline-flex items-center leading-6 overflow-hidden max-w-3/4 text-ellipsis " 
                         :title="name"
                     >
                         <slot name="name">{{name}}</slot>
+                        <!-- Verified -->
+                        <template v-if="verified">
+                            <span title="Verified">  
+                                <VerifiedIcon class="ml-1 h-4 w-4" />
+                            </span>
+                        </template>
                     </div>
                 </div>
 
@@ -111,6 +117,7 @@
     import Identification from '@components/icons/Identification.vue';
     import LockOpenIcon from "@components/icons/LockOpenIcon.vue";
     import LockClosedIcon from "@components/icons/LockClosedIcon.vue";
+    import VerifiedIcon from "@components/icons/VerifiedIcon.vue";
 
     export default {
 
@@ -121,6 +128,7 @@
             Identification,
             LockOpenIcon,
             LockClosedIcon,
+            VerifiedIcon,
         },
 
         props: {

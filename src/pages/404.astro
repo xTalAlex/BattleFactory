@@ -1,0 +1,41 @@
+---
+import '@assets/styles/main.css';
+
+import {APP_NAME} from "@utils/constants";
+
+const full_title = APP_NAME + ' | Page Not Found';
+---
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+    <head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="theme-color" content="#000000" />
+		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<title>{full_title}</title>
+	</head>
+
+    <body class="h-screen flex flex-col bg-gradient-to-bl from-primary-500 to-secondary-500">
+    
+        <div class="ml-8 sm:ml-24 mt-24 md:mt-24 md:ml-48 w-fit mx-auto">
+            <h1 class="font-black uppercase text-left text-7xl lg:text-7xl text-yellow-500 mb-6">404</h1>
+            <h2 class="font-bold uppercase text-5xl lg:text-5xl text-white">Page Not Found!</h2>
+            <div class="w-full text-center mt-12">
+                <a class="text-center px-4 py-2 mb-3 ml-3 text-lg font-bold uppercase rounded shadow outline-none focus:ring-secondary-500 focus:ring-2 bg-secondary-100 text-secondary-500 active:bg-secondary-100 hover:shadow-md focus:outline-none lg:mr-1 lg:mb-0"
+                    href="https://battlefactory.netlify.app"
+                >Homepage</a>
+            </div>
+            
+        </div>
+
+        <div class="relative h-full w-full flex">
+            <img class="absolute bottom h-3/4 md:h-full right-0 bottom-0"
+                src="/img/snorlax.png"
+            />
+        </div>
+
+    </body>
+
+</html>
