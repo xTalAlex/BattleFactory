@@ -31,7 +31,7 @@
 
                     <ul class="flex flex-col mr-auto list-none lg:flex-row">
                         <li class="flex items-center">
-                            <a class="flex items-center px-3 py-4 text-xs font-bold uppercase lg:text-secondary-200 lg:hover:text-secondary-500 text-secondary-200 lg:py-2"
+                            <a class="w-full flex items-center px-3 py-4 text-xs font-bold uppercase lg:text-secondary-200 lg:hover:text-secondary-500 text-secondary-200 lg:py-2"
                                 href="/squads"
                             >
                                 <Database class="mr-2 text-secondary-100 h-5 w-5" />
@@ -43,7 +43,7 @@
                     <ul class="flex flex-col list-none lg:flex-row lg:ml-auto">
                         <li class="flex items-center">
                         <a
-                            class="flex items-center px-3 py-4 text-xs font-bold uppercase lg:text-secondary-200 lg:hover:text-secondary-500 text-secondary-200 lg:py-2"
+                            class="w-full flex items-center px-3 py-4 text-xs font-bold uppercase lg:text-secondary-200 lg:hover:text-secondary-500 text-secondary-200 lg:py-2"
                             href="#pablo"
                             ><i
                             class="text-lg text-secondary-100 fab fa-instagram leading-lg "
@@ -53,7 +53,7 @@
                         </li>
                         <li class="flex items-center">
                         <a
-                            class="flex items-center px-3 py-4 text-xs font-bold uppercase lg:text-secondary-200 lg:hover:text-secondary-500 text-secondary-200 lg:py-2"
+                            class="w-full flex items-center px-3 py-4 text-xs font-bold uppercase lg:text-secondary-200 lg:hover:text-secondary-500 text-secondary-200 lg:py-2"
                             href="#pablo"
                             ><i
                             class="text-lg text-secondary-100 fab fa-facebook leading-lg "
@@ -63,7 +63,7 @@
                         </li>
                         <li class="flex items-center">
                         <a
-                            class="flex items-center px-3 py-4 text-xs font-bold uppercase lg:text-secondary-200 lg:hover:text-secondary-500 text-secondary-200 lg:py-2"
+                            class="w-full flex items-center px-3 py-4 text-xs font-bold uppercase lg:text-secondary-200 lg:hover:text-secondary-500 text-secondary-200 lg:py-2"
                             href="#pablo"
                             ><i
                             class="text-lg text-secondary-100 fab fa-twitch leading-lg "
@@ -73,7 +73,7 @@
                         </li>
                         <li class="flex items-center">
                         <a
-                            class="flex items-center px-3 py-4 text-xs font-bold uppercase lg:text-secondary-200 lg:hover:text-secondary-500 text-secondary-200 lg:py-2"
+                            class="w-full flex items-center px-3 py-4 text-xs font-bold uppercase lg:text-secondary-200 lg:hover:text-secondary-500 text-secondary-200 lg:py-2"
                             href="#pablo"
                             ><i
                             class="text-lg text-secondary-100 fab fa-youtube leading-lg "

@@ -29,6 +29,7 @@
     "publitio_js_sdk": "^1.1.5",
     "tippy.js": "^6.3.7",
     "vue": "^3.2.37",
-    "vue-instantsearch": "^4.4.2"
+    "vue-instantsearch": "^4.4.2",
+    "vue-slider-component": "^4.1.0-beta.2"
   }
 }
