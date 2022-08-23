@@ -18,7 +18,7 @@
                 <div class="relative w-5/6 my-6 mx-auto sm:w-3/4 md:w-2/3 lg:w-1/2"
                     :class="maxWidth"
                 >
-                    <div class="relative flex mx-auto flex-col w-full border-0 rounded-lg shadow-lg outline-none bg-primary-50 focus:outline-none">
+                    <div class="relative max-h-screen overflow-y-auto flex mx-auto flex-col w-full border-0 rounded-lg shadow-lg outline-none bg-primary-50 focus:outline-none">
                         
                         <div class="flex items-start justify-between p-5 text-gray-900 border-b border-solid rounded-t border-primary-200">
                             <h3 class="text-3xl font-semibold"

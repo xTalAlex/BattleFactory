@@ -83,7 +83,7 @@
                     />
                 </div>
 
-                <div class="relative py-4 mx-2 h-full overflow-y-auto space-y-4 transition-transform duration-500" 
+                <div class="relative py-4 mx-2 h-full overflow-y-auto space-y-3 transition-transform duration-500" 
                     v-show="sidebarVisible"
                 >
 
@@ -229,7 +229,7 @@
                         </template>
                         <AisRefinementList 
                             attribute="country_name"
-                            :limit="4"
+                            :limit="3"
                             searchable
                             searchable-placeholder="Search Country..."
                             :class-names="{

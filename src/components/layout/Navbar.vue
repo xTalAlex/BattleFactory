@@ -32,10 +32,10 @@
                     <ul class="flex flex-col mr-auto list-none lg:flex-row">
                         <li class="flex items-center">
                             <a class="w-full flex items-center px-3 py-4 text-xs font-bold uppercase lg:text-secondary-200 lg:hover:text-secondary-500 text-secondary-200 lg:py-2"
-                                href="/squads"
+                                href="/squads/submit"
                             >
-                                <Database class="mr-2 text-secondary-100 h-5 w-5" />
-                                Squads
+                                <i class="mr-1 fa fa-arrow-alt-circle-up text-secondary-100"></i>
+                                Submit your Squad
                             </a>
                         </li>
                     </ul>
@@ -82,13 +82,14 @@
                         >
                         </li>
                         <li class="flex items-center mt-4 lg:mt-0">
-                            <form method="GET" action="/squads/submit">
+                            <form method="GET" action="/squads">
                                 <button
-                                class="px-4 py-2 mb-3 ml-3 text-xs font-bold uppercase rounded shadow outline-none focus:ring-secondary-500 focus:ring-2 bg-secondary-100 text-secondary-500 active:bg-secondary-100 hover:shadow-md focus:outline-none lg:mr-1 lg:mb-0"
+                                class=" text-center px-4 py-2 mb-3 ml-3 text-xs font-bold uppercase rounded shadow outline-none focus:ring-secondary-500 focus:ring-2 bg-secondary-100 text-secondary-500 active:bg-secondary-100 hover:shadow-md focus:outline-none lg:mr-1 lg:mb-0"
                                 type="submit"
                                 style="transition: all 0.15s ease 0s;"
                                 >
-                                <i class="fas fa-arrow-alt-circle-up text-secondary-500"></i> Submit Your Squad
+                                <Database class="-mt-1 text-secondary-500 inline-block w-4 h-4" />
+                                 Squad Index
                                 </button>
                             </form>
                         </li>

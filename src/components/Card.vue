@@ -38,8 +38,7 @@
                 <img class="absolute inset-0 object-center h-full mx-auto opacity-10" src="@assets/images/emblem.png" />
             </div>
 
-            <div class="flex cursor-pointer items-center justify-between px-4 py-2 pt-2 text-xs transition rounded-md group-hover:bg-primary-200 bg-secondary-200"
-                @click="openSquadModal()"
+            <div class="flex items-center justify-between px-4 py-2 pt-2 text-xs transition rounded-md group-hover:bg-primary-200 bg-secondary-200"
             >
                 <Tooltip client:visible
                     tooltip="Active Members"
