@@ -1,0 +1,60 @@
+{
+   "layout" : {
+      "navbar" : {
+         "submit" : "Submit your squad",
+         "index" : "Squad index"
+      },
+      "footer" : {
+         "title" : "Give us your feedback!",
+         "subtitle" : "Fell free to chat with us for any question, suggestion or bug report.",
+         "first-menu" : "Useful Links",
+         "second-menu" : "Other Resources",
+         "menu-items" : {
+            "terms" : "Terms & Condition",
+            "privacy" : "Privacy Policy",
+            "contacts" : "Contact Us"
+         }
+      }
+   },
+
+   "components" : {
+      
+   },
+   
+   "404" : {
+      "title" : "404",
+      "subtitle" : "Page Not Found!",
+      "button" : "Homepage"
+   },
+
+   "index" : {
+      "subtitle" : "Play Pokemon Unite with your Squad",
+      "hero" : {
+         "subtitle" : "Play Pokemon Unite with your Squad."
+      },
+      "intro" : {
+         "title" : "A collection of Pokemon Unite Squads",
+         "description" : "Don't let random matchup tilt you anymore. Choose your teammates yourself. Here you can:",
+         "first-feature" : "Search through our curated Squad Index",
+         "second-feature" : "Submit your own Squad",
+         "third-feature" : "Contribute to the community by giving a Feeback"
+      },
+      "featured-squads" : {
+         "title" : "Squad Spotlight",
+         "subtitle" : "Here are some of the Featured Squads. To see more, check our <1>full list</1>."
+      },
+      "cta" : {
+         "title" : "Are you a Squad Leader?",
+         "subtitle" : "Add it to our Index!",
+         "button" : "Submit"
+      }
+   },
+
+   "squads" : {
+
+      "index" : {},
+
+      "submit" : {}
+
+   }
+}

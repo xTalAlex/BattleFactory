@@ -4,12 +4,10 @@
 
             <div class="flex flex-wrap justify-center mb-16 text-center">
                 <div class="w-full px-4 lg:w-6/12">
-                    <h2 class="text-4xl font-semibold">Here are our Squads</h2>
-                    <p class="m-4 text-lg leading-relaxed text-gray-600">
-                    According to the National Oceanic and Atmospheric
-                    Administration, Ted, Scambos, NSIDClead scentist, puts the
-                    potentially record maximum.
-                    </p>
+                    <h2 class="text-4xl font-semibold">{{ title }}</h2>
+                    <div class="m-4 text-lg leading-relaxed text-gray-600">
+                        <slot />
+                    </div>
                 </div>
             </div>
 
@@ -37,6 +35,12 @@
 
         components: {
             Card
+        },
+
+        props : {
+            title : {
+                type: String
+            }
         },
 
         data() {

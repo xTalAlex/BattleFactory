@@ -95,9 +95,9 @@
                 @change="delete errors.country"
                 v-model="country"
             >
-                <option value="" selected="selected">-</option>
+                <option value="">-</option>
                 <option v-for="( country,iso_code) in countries" v-bind:key="iso_code" :value="iso_code">
-                    {{ country.name }}
+                    {{ country.native }}
                 </option>
             </select>
             
@@ -193,7 +193,7 @@
 
         props : {
             countries : {
-                default : false,
+                type : Object
             },
             locale : {
                 default : '',
@@ -266,7 +266,7 @@
                 this.code = '';
                 this.requires_approval = '';
                 this.active_members = 1;
-                this.country = null;
+                this.country = '';
                 this.selected_rank = '1200';
                 this.link = '';
                 this.description = ''; 
@@ -323,7 +323,9 @@
         },
 
         mounted() {
-            this.country=this.locale;
+            if(this.locale && this.locale.toLowerCase() != 'en') {
+                this.country = Object.keys(this.countries).find( key => this.countries[key].languages.includes(this.locale.toLowerCase()) && this.countries[key].languages.length==1 );
+            }
         }
 
     };

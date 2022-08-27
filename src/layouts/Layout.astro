@@ -5,21 +5,23 @@ export interface Props {
 
 import '@assets/styles/main.css';
 
-import {APP_NAME} from "@utils/constants";
+import i18next, { t } from "i18next";
+import { LanguageSelector, HeadHrefLangs  } from "astro-i18next/components";
 
 import Alert from "@components/Alert.vue";
 import Navbar from "@components/layout/Navbar.vue";
 import Footer from "@components/layout/Footer.astro";
 import ConfirmationModal from "@components/modals/ConfirmationModal.vue";
 
-const ip = Astro.clientAddress;
+import {APP_NAME} from "@utils/constants";
 
+const ip = Astro.clientAddress;
 const { subtitle = '' } = Astro.props as Props;
 const full_title = APP_NAME + ( subtitle ? ' | ' + subtitle : '' );
 ---
 
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang={i18next.language} class="scroll-smooth">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
@@ -27,6 +29,7 @@ const full_title = APP_NAME + ( subtitle ? ' | ' + subtitle : '' );
 		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 		<link rel="shortcut icon" href="/favicon.ico" />
 		<title>{full_title}</title>
+		<HeadHrefLangs/>
 
 		<link
 		  rel="stylesheet"
@@ -38,7 +41,10 @@ const full_title = APP_NAME + ( subtitle ? ' | ' + subtitle : '' );
 
 		<Alert client:only="vue"/>
 		
-		<Navbar client:visible />
+		<Navbar client:visible
+			submitButton={ t("layout.navbar.submit") }
+			indexButton={ t("layout.navbar.index") }
+		/>
 
 		<main class="flex-1 bg-secondary-100">
 
@@ -46,7 +52,19 @@ const full_title = APP_NAME + ( subtitle ? ' | ' + subtitle : '' );
 
 		</main>
 
-		<Footer/>
+		<Footer
+			title={ t("layout.footer.title") }
+			subtitle={ t("layout.footer.subtitle") }
+			firstMenu={ t("layout.footer.first-menu") }
+			secondMenu={ t("layout.footer.second-menu") }
+			termsLabel={ t("layout.footer.menu-items.terms") }
+			privacyLabel={ t("layout.footer.menu-items.privacy") }
+			contactsLabel={ t("layout.footer.menu-items.contacts") }
+		>
+			<LanguageSelector class="bg-transparent text-sm outline-none border-none"
+				showFlag={false} 
+			/>
+		</Footer>
 
 		<slot name="modals"/>
 

@@ -35,36 +35,17 @@
                                 href="/squads/submit"
                             >
                                 <i class="mr-1 fa fa-arrow-alt-circle-up text-secondary-100"></i>
-                                Submit your Squad
+                                {{ submitButton }}
                             </a>
                         </li>
                     </ul>
 
-                    <ul class="flex flex-col list-none lg:flex-row lg:ml-auto">
+                    <ul class="flex flex-col list-none lg:flex-row lg:ml-auto">                
                         <li class="flex items-center">
                         <a
                             class="w-full flex items-center px-3 py-4 text-xs font-bold uppercase lg:text-secondary-200 lg:hover:text-secondary-500 text-secondary-200 lg:py-2"
-                            href="#pablo"
-                            ><i
-                            class="text-lg text-secondary-100 fab fa-instagram leading-lg "
-                            ></i
-                            ><span class="inline-block ml-2 lg:hidden">Instagram</span></a
-                        >
-                        </li>
-                        <li class="flex items-center">
-                        <a
-                            class="w-full flex items-center px-3 py-4 text-xs font-bold uppercase lg:text-secondary-200 lg:hover:text-secondary-500 text-secondary-200 lg:py-2"
-                            href="#pablo"
-                            ><i
-                            class="text-lg text-secondary-100 fab fa-facebook leading-lg "
-                            ></i
-                            ><span class="inline-block ml-2 lg:hidden">Facebook</span></a
-                        >
-                        </li>
-                        <li class="flex items-center">
-                        <a
-                            class="w-full flex items-center px-3 py-4 text-xs font-bold uppercase lg:text-secondary-200 lg:hover:text-secondary-500 text-secondary-200 lg:py-2"
-                            href="#pablo"
+                            href="https://www.twitch.tv/directory/game/Pok%C3%A9mon%20Unite"
+                            target="_blank"
                             ><i
                             class="text-lg text-secondary-100 fab fa-twitch leading-lg "
                             ></i
@@ -74,7 +55,8 @@
                         <li class="flex items-center">
                         <a
                             class="w-full flex items-center px-3 py-4 text-xs font-bold uppercase lg:text-secondary-200 lg:hover:text-secondary-500 text-secondary-200 lg:py-2"
-                            href="#pablo"
+                            href="https://www.youtube.com/user/PokemonUfficiale"
+                            target="_blank"
                             ><i
                             class="text-lg text-secondary-100 fab fa-youtube leading-lg "
                             ></i
@@ -89,7 +71,7 @@
                                 style="transition: all 0.15s ease 0s;"
                                 >
                                 <Database class="-mt-1 text-secondary-500 inline-block w-4 h-4" />
-                                 Squad Index
+                                    {{ indexButton }}
                                 </button>
                             </form>
                         </li>
@@ -119,6 +101,15 @@
         },
 
         mixins: [escapable],
+
+        props : {
+            submitButton : {
+                type : String,
+            },
+            indexButton : {
+                type : String,
+            }
+        },
 
         data() {
             return {

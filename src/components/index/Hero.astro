@@ -1,15 +1,21 @@
 ---
+export interface Props {
+	subtitle?: string;
+}
+
 import SectionSeparator from "@components/SectionSeparator.astro";
 
-import videoHeader from '@assets/videos/video_header.mp4';
+import videoHeader from "@assets/videos/video_header.mp4";
+
+const { subtitle = '' } = Astro.props as Props;
 ---
 <div
     class="relative pt-16 pb-32 flex content-center items-center justify-center"
-    style="min-height: 90vh;"
+    style="min-height: 95vh;"
 >
     <div
         class="absolute top-0 w-full h-full bg-center bg-fixed bg-cover"
-        style='background-image: url("/img/remoat_stadium.png");'
+        style="background-image: url('/img/remoat_stadium.png');"
     >
 
         <span
@@ -31,14 +37,14 @@ import videoHeader from '@assets/videos/video_header.mp4';
                     Battle Factory
                 </h1>
                 <p class="mt-4 text-lg text-gray-300">
-                    Play Pokemon Unite with your Squad.
+                    { subtitle }
                 </p>
             </div>
         </div>
         </div>
     </div>
     
-    <img class="z-20 w-48 absolute -bottom-16 right-10" src="/img/unite_logo.png" />
+    <!-- <img class="z-20 w-48 absolute -bottom-16 right-10" src="/img/unite_logo.png" /> -->
     <div
         class="bottom-0 z-10 top-auto left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-32"
         style="height: 70px;"

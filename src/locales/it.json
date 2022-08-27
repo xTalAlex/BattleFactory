@@ -1,0 +1,60 @@
+{
+   "layout" : {
+      "navbar" : {
+         "submit" : "Invia la tua Cerchia",
+         "index" : "Elenco Cerchie"
+      },
+      "footer" : {
+         "title" : "Dacci un Feedback!",
+         "subtitle" : "Scrivi in chat per qualsiasi domanda, suggerimento o problema.",
+         "first-menu" : "Link Utili",
+         "second-menu" : "Altre Risorse",
+         "menu-items" : {
+            "terms" : "Termini & Condizioni",
+            "privacy" : "Privacy Policy",
+            "contacts" : "Contattaci"
+         }
+      }
+   },
+
+   "components" : {
+      
+   },
+   
+   "404" : {
+      "title" : "404",
+      "subtitle" : "Pagina non trovata!",
+      "button" : "Homepage"
+   },
+
+   "index" : {
+      "subtitle" : "Gioca a Pokemon Unite con la tua Cerchia",
+      "hero" : {
+         "subtitle" : "Gioca a Pokemon Unite con la tua Cerchia."
+      },
+      "intro" : {
+         "title" : "Cerchie da tutto il mondo",
+         "description" : "Non lasciare che il random matchup ti faccia tiltare ancora. Scegli i tuoi compagni di squadra. Qui puoi:",
+         "first-feature" : "Cercare tra il nostro Elenco curato di Cerchie",
+         "second-feature" : "Aggiungere la tua Cerchia all'Elenco",
+         "third-feature" : "Aiutare la community dandoci il tuo Feedback"
+      },
+      "featured-squads" : {
+         "title" : "Cerchie in Spotlight",
+         "subtitle" : "Ecco alcune cerchie in evidenza. Per vederne altre, dai un'occhiata all'<1>elenco completo</1>."
+      },
+      "cta" : {
+         "title" : "Sei a capo di una Cerchia?",
+         "subtitle" : "Aggiungila al nostro elenco!",
+         "button" : "Invia"
+      }
+   },
+
+   "squads" : {
+
+      "index" : {},
+
+      "submit" : {}
+
+   }
+}
