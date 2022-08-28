@@ -12,8 +12,8 @@
                     <img class="inline-block w-3 h-3 mr-1 -mt-1"
                         v-if="country"
                         :src="countryFlag"
-                        :alt="country_name"
-                        :title="country_name"
+                        :alt="countryName"
+                        :title="countryName"
                     />
                     <div class="inline-flex items-center leading-6 overflow-hidden max-w-3/4 text-ellipsis " 
                         :title="name"

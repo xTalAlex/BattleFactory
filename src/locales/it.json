@@ -7,7 +7,8 @@
       "featured" : "In Evidenza",
       "verified" : "Verificata",
       "veteran" : "Elite",
-      "ultra" : "Expert"
+      "ultra" : "Expert",
+      "name" : "Nome"
    },
 
    "layout" : {
@@ -80,7 +81,22 @@
 
    "squads" : {
 
-      "index" : {},
+      "index" : {
+         "sorting" : {
+            "latest" : "Più Recenti",
+            "oldest" : "Meno Recenti"
+         },
+         "search-placeholder" : "Cerca...",
+         "voicesearch-title" : "Ricerca vocale",
+         "filters" : {
+            "all" : "Qualsiasi",
+            "search-country-placeholder" : "Cerca paese...",
+            "clear" : "Azzera filtri"
+         },
+         "more" : "Mostra altri",
+         "stats" : "risultati trovati in",
+         "no-results" : "Nessun risultato per"
+      },
 
       "submit" : {
          "title" : "Invia la tua Cerchia",

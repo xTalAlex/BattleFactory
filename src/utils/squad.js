@@ -1,3 +1,5 @@
+import countriesList from 'countries-list';
+
 export const squad = {
 
     props: {
@@ -18,10 +20,6 @@ export const squad = {
             required: true
         },
         country : {
-            type: String,
-            required: false
-        },
-        country_name : {
             type: String,
             required: false
         },
@@ -47,7 +45,19 @@ export const squad = {
         }
     },
 
+    data () {
+        return {
+            countries : countriesList.countries,
+        };
+    },
+
     computed: {
+        countryName(){
+            let country = null;
+            if(this.country) country = this.countries[this.country.toUpperCase()];
+            return country ? country.name : null;
+        },
+
         countryFlag() {
             return this.country ? 'https://flagcdn.com/32x24/'+this.country.toLowerCase()+'.png' : '';
         },

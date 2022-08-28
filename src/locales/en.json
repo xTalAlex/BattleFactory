@@ -7,7 +7,8 @@
       "featured" : "Featured",
       "verified" : "Verified",
       "veteran" : "Veteran",
-      "ultra" : "Ultra"
+      "ultra" : "Ultra",
+      "name" : "Name"
    },
 
    "layout" : {
@@ -81,7 +82,22 @@
 
    "squads" : {
 
-      "index" : {},
+      "index" : {
+         "sorting" : {
+            "latest" : "Latest",
+            "oldest" : "Oldest"
+         },
+         "search-placeholder" : "Search...",
+         "voicesearch-title" : "Voice search",
+         "filters" : {
+            "all" : "All",
+            "search-country-placeholder" : "Search Country...",
+            "clear" : "Clear filters"
+         },
+         "more" : "Show More",
+         "stats" : "results found in",
+         "no-results" : "No results for"
+      },
 
       "submit" : {
          "title" : "Submit Your Squad",

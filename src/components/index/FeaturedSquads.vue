@@ -16,7 +16,6 @@
                     <Card 
                         v-bind="squad"
                         :rank="squad.rank || ranks[0]"
-                        :country_name="countryName(squad.country)"
                         :translations="translations"
                     />
                 </div>
@@ -30,7 +29,6 @@
 
     import {RANKS} from '@utils/constants';
     import Card from '@components/Card.vue';
-    import countriesList from 'countries-list';
 
     export default {
 
@@ -50,17 +48,11 @@
         data() {
             return {
                 squads: [],
-                countries : countriesList.countries,
                 ranks : RANKS,
             }
         },
 
         methods : {
-            countryName(code){
-                let country = null;
-                if(code) country = this.countries[code.toUpperCase()];
-                return country ? country.name : null;
-            }
         },
 
         created() {

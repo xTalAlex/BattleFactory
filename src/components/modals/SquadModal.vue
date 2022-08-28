@@ -31,11 +31,11 @@
                             <img class="inline-block w-3 h-3 mt-0.5"
                                 :src="countryFlag"
                                 :alt="country"
-                                :title="country_name"
+                                :title="countryName"
                             />
                         </template>
         
-                        <div class="" v-text="country_name"></div>
+                        <div class="" v-text="countryName"></div>
                     </div>
                 </template>
 
@@ -122,6 +122,7 @@
 <script>
 
     import {squad} from "@utils/squad.js";
+    import countriesList from 'countries-list';
     
     import Modal from "@components/modals/Modal.vue";
     import LocationMarker from "@components/icons/LocationMarker.vue";
@@ -159,12 +160,12 @@
             return {
                 title : "Info",
                 visible : false,
+                countries : countriesList.countries,
                 name : '',
                 code : '',
                 description : null,
                 verified : false,
                 country : '',
-                country_name : '',
                 link: '',
                 active_members : 1,
                 rank : '',
@@ -175,6 +176,12 @@
         },
 
         computed : {
+            countryName(){
+                let country = null;
+                if(this.country) country = this.countries[this.country.toUpperCase()];
+                return country ? country.name : null;
+            },
+
             countryFlag() {
                 return this.country ? 'https://flagcdn.com/32x24/'+this.country.toLowerCase()+'.png' : '';
             },
@@ -197,7 +204,6 @@
                 this.code = e.detail.code;
                 this.description = e.detail.description;
                 this.country = e.detail.country ? e.detail.country.toLowerCase() : '';
-                this.country_name = e.detail.country_name;
                 this.link = e.detail.link ? e.detail.link : '';
                 this.active_members = e.detail.active_members;
                 this.rank = e.detail.rank;

@@ -101,7 +101,7 @@
             >
                 <option value="">-</option>
                 <option v-for="( country,iso_code) in countries" v-bind:key="iso_code" :value="iso_code">
-                    {{ country.native }}
+                    {{ country.name }}
                 </option>
             </select>
             
