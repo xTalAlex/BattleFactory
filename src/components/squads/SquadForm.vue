@@ -174,8 +174,8 @@
         
         <button type="button" class="px-6 py-2 text-lg text-white border-0 rounded disabled:bg-secondary-400 bg-secondary-500 focus:outline-none hover:bg-secondary-600"
             id="submitButton"
-            :disabled="( name.length<3 || code.length<8 ) || Object.keys(errors).length>0"
-            @click.once="submit()"
+            :disabled="submitting || ( name.length<3 || code.length<8 ) || Object.keys(errors).length>0"
+            @click="submit()"
         >{{ submitLabel }}</button>
     </form>
 </template>
@@ -240,7 +240,16 @@
             },
             submitLabel : {
                 default : 'Submit',
-            }
+            },
+            successMessage : {
+                default : 'Success',
+            },
+            validationErrorMessage : {
+                default : 'Validation error',
+            },
+            genericErrorMessage : {
+                default : 'Generic error'
+            },
             
         },
         
@@ -258,6 +267,7 @@
                 selected_rank : '1200',
                 link : '',
                 description : '',
+                submitting : false,
             }
         },
 
@@ -317,6 +327,7 @@
             },
 
             submit(){
+                this.submitting = true;
                 const formData = new FormData(document.getElementById('form'));
                 let bodyObject = {};
                 formData.forEach(function(value, key){
@@ -341,7 +352,7 @@
                         {
                             response.json().then( result => this.success = true );
                             this.reset();
-                            document.notify('success','Your Squad has been listed!');
+                            document.notify('success',this.successMessage);
                         }
                         else
                         {
@@ -349,18 +360,20 @@
                                 response.json().then( ({errors}) => {
                                     this.errors = errors;
                                 } );
-                                document.notify('error','Some information is not valid!');
+                                document.notify('error',this.validationErrorMessage);
                                 window.location.href = '#form';
                             }
                             else{
-                                document.notify('error','Something went wrong. Submission not sent.');
+                                document.notify('error',this.genericErrorMessage);
                                 // send to API Log
                             }
                         }
+                        this.submitting = false;
                     })
                     .catch( error => {
-                        document.notify('error','Something went wrong. Submission not sent.');
+                        document.notify('error',this.genericErrorMessage);
                         // send to API Log
+                        this.submitting = false;
                     });
             }
             

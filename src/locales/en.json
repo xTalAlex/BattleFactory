@@ -17,8 +17,14 @@
       }
    },
 
-   "components" : {
-      
+   "alert" : {
+      "success" : {
+         "squad-submitted" : "Your Squad has been listed!"
+      },
+      "error" : {
+         "generic" : "Something went wrong. Submission not sent.",
+         "validation" : "Some information is not valid!"
+      }
    },
    
    "404" : {

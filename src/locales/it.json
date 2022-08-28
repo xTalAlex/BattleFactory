@@ -17,8 +17,14 @@
       }
    },
 
-   "components" : {
-      
+   "alert" : {
+      "success" : {
+         "squad-submitted" : "La tua Cerchia è stata aggiunta!"
+      },
+      "error" : {
+         "generic" : "Qualcosa è andato storto. Richiesta non inviata.",
+         "validation" : "Alcune informazioni non sono valide!"
+      }
    },
    
    "404" : {
@@ -65,7 +71,7 @@
          "approval" : "Approvazione Richiesta",
          "country" : "Paese",
          "rank" : "Rank Medio",
-         "link" : "Link (Discord, Instagram, Website, ...)",
+         "link" : "Link (Discord, Instagram, Sito Web, ...)",
          "description" : "Descrizione",
          "submit" : "Invia"
       }
