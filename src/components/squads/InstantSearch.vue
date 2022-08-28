@@ -281,6 +281,7 @@
                 <template v-slot:item="{ item }" >
                     <Card 
                         v-bind="item"
+                        :translations="translations"
                     >
                         <template #name>
                             <AisHighlight attribute="name" :hit="item" />
@@ -363,9 +364,19 @@
             AisClearRefinements,
         },
 
-        mixins : [escapable],
+        mixins: [escapable],
 
-        props: ['algoliaAppId','algoliaClient'],
+        props: {
+            algoliaAppId : {
+                type : String
+            },
+            algoliaClient : {
+                type : String
+            },
+            translations : {
+                type : Object
+            }
+        },
 
         data(){
             return {

@@ -53,7 +53,10 @@ export const squad = {
         },
 
         rankLabel(){
-            return this.rank>=1200 ? 'Master '+this.rank : (this.rank[0].toUpperCase() + this.rank.substring(1));
+            let label = this.rank;
+            if(this.translations && this.translations.veteran && this.rank.toLowerCase() == 'veteran' ) label = this.translations.veteran;
+            if(this.translations && this.translations.ultra && this.rank.toLowerCase() == 'ultra' ) label = this.translations.ultra;
+            return this.rank>=1200 ? 'Master '+this.rank : (label[0].toUpperCase() + label.substring(1));
         },
     },
 

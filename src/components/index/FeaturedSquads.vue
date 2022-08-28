@@ -17,6 +17,7 @@
                         v-bind="squad"
                         :rank="squad.rank || ranks[0]"
                         :country_name="countryName(squad.country)"
+                        :translations="translations"
                     />
                 </div>
             </div>
@@ -40,6 +41,9 @@
         props : {
             title : {
                 type: String
+            },
+            translations : {
+                type: Object
             }
         },
 
@@ -63,7 +67,7 @@
             fetch("https://battlefactory-admin.herokuapp.com/api/squads")
                 .then(response => response.json())
                 .then(result => this.squads = result.data.slice(0, 9));
-        }
+        },
 
     };
     

@@ -1,4 +1,15 @@
 {
+   "general" : {
+      "open" : "Open to Everyone",
+      "requires-approval" : "Requires Approval",
+      "link" : "External Link",
+      "members" : "Active Members",
+      "featured" : "Featured",
+      "verified" : "Verified",
+      "veteran" : "Veteran",
+      "ultra" : "Ultra"
+   },
+
    "layout" : {
       "navbar" : {
          "submit" : "Submit your squad",
@@ -24,6 +35,18 @@
       "error" : {
          "generic" : "Something went wrong. Submission not sent.",
          "validation" : "Some information is not valid!"
+      }
+   },
+
+   "modal" : {
+      "confirm" : {
+         "link" : {
+            "title" : "Want to leave?",
+            "description" : "You are being redirected to an external page.",
+            "confirm" : "Go",
+            "cancel" : "Stay"
+ 
+         }
       }
    },
    

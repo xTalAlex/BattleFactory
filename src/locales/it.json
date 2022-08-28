@@ -1,4 +1,15 @@
 {
+   "general" : {
+      "open" : "Aperta a Tutti",
+      "requires-approval" : "Richiede Approvazione",
+      "link" : "Link Esterno",
+      "members" : "Membri Attivi",
+      "featured" : "In Evidenza",
+      "verified" : "Verificata",
+      "veteran" : "Elite",
+      "ultra" : "Expert"
+   },
+
    "layout" : {
       "navbar" : {
          "submit" : "Invia la tua Cerchia",
@@ -24,6 +35,17 @@
       "error" : {
          "generic" : "Qualcosa è andato storto. Richiesta non inviata.",
          "validation" : "Alcune informazioni non sono valide!"
+      }
+   },
+
+   "modal" : {
+      "confirm" : {
+         "link" : {
+            "title" : "Vuoi andartene?",
+            "description" : "Stai per essere indirizzato ad una pagina esterna.",
+            "confirm" : "Vai",
+            "cancel" : "Rimani"
+         }
       }
    },
    
@@ -68,7 +90,7 @@
          "name" : "Nome della Cerchia",
          "code" : "Codice",
          "members" : "Membri Attivi",
-         "approval" : "Approvazione Richiesta",
+         "approval" : "Approvazione Richieste",
          "country" : "Paese",
          "rank" : "Rank Medio",
          "link" : "Link (Discord, Instagram, Sito Web, ...)",

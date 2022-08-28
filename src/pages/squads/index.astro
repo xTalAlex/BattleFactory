@@ -1,5 +1,5 @@
 ---
-import { changeLanguage } from "i18next";
+import { t, changeLanguage } from "i18next";
 import Layout from "@layouts/Layout.astro";
 import SquadModal from "@components/modals/SquadModal.vue";
 import InstantSearch from "@components/squads/InstantSearch.vue";
@@ -8,6 +8,21 @@ changeLanguage("en");
 
 const algolia_app_id = import.meta.env.ALGOLIA_APP_ID;
 const algolia_client = import.meta.env.ALGOLIA_CLIENT;
+
+const translations = {
+  "open" : t("general.open"),
+  "requiresApproval" : t("general.requires-approval"),
+  "link" : t("general.link"),
+  "members" : t("general.members"),
+  "featured" : t("general.featured"),
+  "verified" : t("general.verified"),
+  "veteran" : t("general.veteran"),
+  "ultra" : t("general.ultra"),
+  "confirmTitle" : t("modal.confirm.link.title"),
+  "confirmDescription" : t("modal.confirm.link.description"),
+  "confirmConfirm" : t("modal.confirm.link.confirm"),
+  "confirmCancel" : t("modal.confirm.link.cancel")
+};
 ---
 
 <Layout subtitle="Squads">
@@ -18,11 +33,15 @@ const algolia_client = import.meta.env.ALGOLIA_CLIENT;
             <InstantSearch client:only="vue"
                 algoliaAppId={algolia_app_id}
                 algoliaClient={algolia_client}
+                translations={translations}
             />
+
                 
         </div>
     </section>
 
-    <SquadModal client:only="vue" slot="modals"/>
+    <SquadModal client:only="vue" slot="modals"
+        translations={ translations }
+    />
     
 </Layout>
