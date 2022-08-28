@@ -12,18 +12,18 @@ import { Trans } from "astro-i18next/components";
 changeLanguage("it");
 
 const translations = {
-  "open" : t("general.open"),
-  "requiresApproval" : t("general.requires-approval"),
-  "link" : t("general.link"),
-  "members" : t("general.members"),
-  "featured" : t("general.featured"),
-  "verified" : t("general.verified"),
-  "veteran" : t("general.veteran"),
-  "ultra" : t("general.ultra"),
-  "confirmTitle" : t("modal.confirm.link.title"),
-  "confirmDescription" : t("modal.confirm.link.description"),
-  "confirmConfirm" : t("modal.confirm.link.confirm"),
-  "confirmCancel" : t("modal.confirm.link.cancel")
+    "open": t("general.open"),
+    "requiresApproval": t("general.requires-approval"),
+    "link": t("general.link"),
+    "members": t("general.members"),
+    "featured": t("general.featured"),
+    "verified": t("general.verified"),
+    "veteran": t("general.veteran"),
+    "ultra": t("general.ultra"),
+    "confirmTitle": t("modal.confirm.link.title"),
+    "confirmDescription": t("modal.confirm.link.description"),
+    "confirmConfirm": t("modal.confirm.link.confirm"),
+    "confirmCancel": t("modal.confirm.link.cancel")
 };
 ---
 <Layout subtitle={ t("index.subtitle") } >
@@ -40,7 +40,7 @@ const translations = {
     >
       <Trans i18nKey="index.featured-squads.subtitle">
         <p>
-          Here are some of the Featured Squads. To see more, check our <a class="lg:text-secondary-500 lg:hover:text-secondary-600 disabled:text-secondary-400 disabled:hover:text-secondary-400 text-secondary-500" href={localizePath("/squads")}>full list</a>.
+          Here are some of the Featured Squads. To see more, check our <a class="lg:text-secondary-500 lg:hover:text-secondary-600 disabled:text-secondary-400 disabled:hover:text-secondary-400 text-secondary-500" href={ localizePath("/squads") }>full list</a>.
         </p>
       </Trans>
     </FeaturedSquads>
