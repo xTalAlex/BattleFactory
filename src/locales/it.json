@@ -54,7 +54,21 @@
 
       "index" : {},
 
-      "submit" : {}
+      "submit" : {
+         "title" : "Invia la tua Cerchia",
+         "subtitle" : "Compila il modulo con le informazioni sulla tua Cerchia.",
+         "email" : "Email",
+         "email-hint" : "Senza un Email valida non potrai aggiornare le informazioni in seguito.",
+         "name" : "Nome della Cerchia",
+         "code" : "Codice",
+         "members" : "Membri Attivi",
+         "approval" : "Approvazione Richiesta",
+         "country" : "Paese",
+         "rank" : "Rank Medio",
+         "link" : "Link (Discord, Instagram, Website, ...)",
+         "description" : "Descrizione",
+         "submit" : "Invia"
+      }
 
    }
 }

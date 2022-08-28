@@ -54,7 +54,21 @@
 
       "index" : {},
 
-      "submit" : {}
+      "submit" : {
+         "title" : "Submit Your Squad",
+         "subtitle" : "Fill the form with some information about your Squad.",
+         "email" : "Email",
+         "email-hint" : "Without a valid email you wont be able to edit your Squad later.",
+         "name" : "Squad Name",
+         "code" : "Code",
+         "members" : "Active Members",
+         "approval" : "Requires Approval",
+         "country" : "Country",
+         "rank" : "Average Rank",
+         "link" : "Link (Discord, Instagram, Website, ...)",
+         "description" : "Description",
+         "submit" : "Submit"
+      }
 
    }
 }

@@ -3,10 +3,11 @@ import { changeLanguage } from "i18next";
 import Layout from "@layouts/Layout.astro";
 import SquadModal from "@components/modals/SquadModal.vue";
 import InstantSearch from "@components/squads/InstantSearch.vue";
-const algolia_app_id = import.meta.env.ALGOLIA_APP_ID;
-const algolia_client = import.meta.env.ALGOLIA_CLIENT;
 
 changeLanguage("it");
+
+const algolia_app_id = import.meta.env.ALGOLIA_APP_ID;
+const algolia_client = import.meta.env.ALGOLIA_CLIENT;
 ---
 
 <Layout subtitle="Squads">

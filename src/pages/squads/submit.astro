@@ -1,10 +1,11 @@
 ---
-import i18next, { changeLanguage } from "i18next";
-changeLanguage("en");
-
+import i18next, { t, changeLanguage } from "i18next";
 import Layout from "@layouts/Layout.astro";
 import SquadForm from "@components/squads/SquadForm.vue";
 import countriesList from "countries-list";
+
+changeLanguage("en");
+
 const { countries } = countriesList;
 const locale = i18next.language;
 ---
@@ -24,7 +25,20 @@ const locale = i18next.language;
         <div class="container flex px-5 py-20 mx-auto">
             <SquadForm client:visible 
                 countries={countries}
-                locale={locale}    
+                locale={locale}
+                title={ t("squads.submit.title") }
+                subtitle={ t("squads.submit.subtitle") }
+                emailLabel={ t("squads.submit.email") }
+                emailHint={ t("squads.submit.email-hint") }
+                squadNameLabel={ t("squads.submit.name") }
+                codeLabel={ t("squads.submit.code") }
+                activeMembersLabel={ t("squads.submit.members") }
+                requiresApprovalLabel={ t("squads.submit.approval") }
+                countryLabel={ t("squads.submit.country") }
+                avgRankLabel={ t("squads.submit.rank") }
+                linkLabel={ t("squads.submit.link") }
+                descriptionLabel={ t("squads.submit.description") }
+                submitLabel={ t("squads.submit.submit") }
             />
         </div>
 
