@@ -4,6 +4,7 @@
         class="w-full"
         index-name="squads" 
         v-bind:search-client="searchClient"
+        :routing="routing"
     >
         <AisConfigure
             :hits-per-page.camel="12"
@@ -323,6 +324,8 @@
 <script>
 
     import algoliasearch from 'algoliasearch/lite';
+    import { history as historyRouter } from 'instantsearch.js/es/lib/routers';
+    import { singleIndex as singleIndexMapping } from 'instantsearch.js/es/lib/stateMappings';
     import { 
             AisInstantSearch, AisConfigure, AisStats, 
             AisPoweredBy, AisSearchBox, AisVoiceSearch, 
@@ -388,6 +391,10 @@
                     this.algoliaAppId,
                     this.algoliaClient
                 ),
+                routing: {
+                    router: historyRouter(),
+                    stateMapping: singleIndexMapping('squads'),
+                },
                 sidebarVisible : false,
                 activeMembers : [1,30],
             }
