@@ -6,6 +6,7 @@ import FeaturedSquads from "@components/index/FeaturedSquads.vue";
 import CTA from "@components/index/CTA.astro";
 import SquadModal from "@components/modals/SquadModal.vue";
 import { t, changeLanguage } from "i18next";
+import { localizePath } from "astro-i18next";
 import { Trans } from "astro-i18next/components";
 
 changeLanguage("it");
@@ -23,7 +24,7 @@ changeLanguage("it");
     >
       <Trans i18nKey="index.featured-squads.subtitle">
         <p>
-          Here are some of the Featured Squads. To see more, check our <a href="/squads">full list</a>.
+          Here are some of the Featured Squads. To see more, check our <a href={localizePath("/squads")}>full list</a>.
         </p>
       </Trans>
     </FeaturedSquads>
@@ -32,6 +33,7 @@ changeLanguage("it");
       title={ t("index.cta.title") }
       subtitle={ t("index.cta.subtitle") }
       button={ t("index.cta.button")}
+      submitUrl={ localizePath("/squads/submit") }
     />
 
     <SquadModal client:only="vue" slot="modals"/>

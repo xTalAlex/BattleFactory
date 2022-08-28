@@ -3,11 +3,12 @@ export interface Props {
 	title: string;
     subtitle: string;
     button: string;
+    submitUrl : string;
 }
 
 import SectionSeparator from "../SectionSeparator.astro";
 
-const { title, subtitle, button } = Astro.props as Props;
+const { title, subtitle, button, submitUrl = 'squads/submit' } = Astro.props as Props;
 ---
 <section class="py-4 bg-gray-900 realtive">
     <div class="absolute left-0 right-0 w-full -mt-24 overflow-hidden pointer-events-none" style="height: 80px;">
@@ -23,7 +24,7 @@ const { title, subtitle, button } = Astro.props as Props;
             </span>
         </h2>
         <div class="lg:mt-0 lg:flex-shrink-0">
-            <form method="GET" action="/squads/submit" class="inline-flex mt-12 rounded-md shadow">
+            <form method="GET" action={ submitUrl } class="inline-flex mt-12 rounded-md shadow">
                 <button type="submit" class="w-full px-6 py-4 text-base font-semibold text-center text-white transition duration-200 ease-in rounded-lg shadow-md bg-primary-600 hover:bg-primary-700 focus:ring-primary-500 focus:ring-offset-primary-200 focus:outline-none focus:ring-2 focus:ring-offset-2 ">
                     { button }
                 </button>
