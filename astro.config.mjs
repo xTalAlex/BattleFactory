@@ -19,15 +19,6 @@ export default defineConfig({
     }),
     vue(),
     astroI18next(),
-    sitemap({
-      filter: (page) => page !== 'https://battlefactory.netlify.app/404',
-      i18n : {
-        defaultLocale: 'en',
-        locales: {
-          en: 'en',
-          it: 'it',
-        },
-      }
-    })
+    sitemap()
   ],
 });
