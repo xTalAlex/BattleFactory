@@ -16,7 +16,7 @@
                     <Card 
                         v-bind="squad"
                         :rank="squad.rank || ranks[0]"
-                        :country_name="countryName(squad.country)"
+                        :translations="translations"
                     />
                 </div>
             </div>
@@ -29,7 +29,6 @@
 
     import {RANKS} from '@utils/constants';
     import Card from '@components/Card.vue';
-    import countriesList from 'countries-list';
 
     export default {
 
@@ -40,30 +39,27 @@
         props : {
             title : {
                 type: String
+            },
+            translations : {
+                type: Object
             }
         },
 
         data() {
             return {
                 squads: [],
-                countries : countriesList.countries,
                 ranks : RANKS,
             }
         },
 
         methods : {
-            countryName(code){
-                let country = null;
-                if(code) country = this.countries[code.toUpperCase()];
-                return country ? country.name : null;
-            }
         },
 
         created() {
             fetch("https://battlefactory-admin.herokuapp.com/api/squads")
                 .then(response => response.json())
                 .then(result => this.squads = result.data.slice(0, 9));
-        }
+        },
 
     };
     

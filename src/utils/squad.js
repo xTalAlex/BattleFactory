@@ -1,3 +1,5 @@
+import countriesList from 'countries-list';
+
 export const squad = {
 
     props: {
@@ -18,10 +20,6 @@ export const squad = {
             required: true
         },
         country : {
-            type: String,
-            required: false
-        },
-        country_name : {
             type: String,
             required: false
         },
@@ -47,13 +45,28 @@ export const squad = {
         }
     },
 
+    data () {
+        return {
+            countries : countriesList.countries,
+        };
+    },
+
     computed: {
+        countryName(){
+            let country = null;
+            if(this.country) country = this.countries[this.country.toUpperCase()];
+            return country ? country.name : null;
+        },
+
         countryFlag() {
             return this.country ? 'https://flagcdn.com/32x24/'+this.country.toLowerCase()+'.png' : '';
         },
 
         rankLabel(){
-            return this.rank>=1200 ? 'Master '+this.rank : (this.rank[0].toUpperCase() + this.rank.substring(1));
+            let label = this.rank;
+            if(this.translations && this.translations.veteran && this.rank.toLowerCase() == 'veteran' ) label = this.translations.veteran;
+            if(this.translations && this.translations.ultra && this.rank.toLowerCase() == 'ultra' ) label = this.translations.ultra;
+            return this.rank>=1200 ? 'Master '+this.rank : (label[0].toUpperCase() + label.substring(1));
         },
     },
 

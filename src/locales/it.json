@@ -1,4 +1,16 @@
 {
+   "general" : {
+      "open" : "Aperta a Tutti",
+      "requires-approval" : "Richiede Approvazione",
+      "link" : "Link Esterno",
+      "members" : "Membri Attivi",
+      "featured" : "In Evidenza",
+      "verified" : "Verificata",
+      "veteran" : "Elite",
+      "ultra" : "Expert",
+      "name" : "Nome"
+   },
+
    "layout" : {
       "navbar" : {
          "submit" : "Invia la tua Cerchia",
@@ -12,13 +24,30 @@
          "menu-items" : {
             "terms" : "Termini & Condizioni",
             "privacy" : "Privacy Policy",
-            "contacts" : "Contattaci"
+            "contacts" : "Contatti"
          }
       }
    },
 
-   "components" : {
-      
+   "alert" : {
+      "success" : {
+         "squad-submitted" : "La tua Cerchia è stata aggiunta!"
+      },
+      "error" : {
+         "generic" : "Qualcosa è andato storto. Richiesta non inviata.",
+         "validation" : "Alcune informazioni non sono valide!"
+      }
+   },
+
+   "modal" : {
+      "confirm" : {
+         "link" : {
+            "title" : "Vuoi andartene?",
+            "description" : "Stai per essere indirizzato ad una pagina esterna.",
+            "confirm" : "Vai",
+            "cancel" : "Rimani"
+         }
+      }
    },
    
    "404" : {
@@ -52,9 +81,38 @@
 
    "squads" : {
 
-      "index" : {},
+      "index" : {
+         "sorting" : {
+            "latest" : "Più Recenti",
+            "oldest" : "Meno Recenti"
+         },
+         "search-placeholder" : "Cerca...",
+         "voicesearch-title" : "Ricerca vocale",
+         "filters" : {
+            "all" : "Qualsiasi",
+            "search-country-placeholder" : "Cerca paese...",
+            "clear" : "Azzera filtri"
+         },
+         "more" : "Mostra altri",
+         "stats" : "risultati trovati in",
+         "no-results" : "Nessun risultato per"
+      },
 
-      "submit" : {}
+      "submit" : {
+         "title" : "Invia la tua Cerchia",
+         "subtitle" : "Compila il modulo con le informazioni sulla tua Cerchia.",
+         "email" : "Email",
+         "email-hint" : "Senza un Email valida non potrai aggiornare le informazioni in seguito.",
+         "name" : "Nome della Cerchia",
+         "code" : "Codice",
+         "members" : "Membri Attivi",
+         "approval" : "Approvazione Richieste",
+         "country" : "Paese",
+         "rank" : "Rank Medio",
+         "link" : "Link (Discord, Instagram, Sito Web, ...)",
+         "description" : "Descrizione",
+         "submit" : "Invia"
+      }
 
    }
 }

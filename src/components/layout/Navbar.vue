@@ -11,7 +11,7 @@
                 
                 <div class="relative flex justify-between w-full lg:w-auto lg:static lg:block lg:justify-start">
                     <a class="inline-block py-2 mr-4 text-sm font-bold leading-relaxed uppercase outline-none focus:outline-none whitespace-nowrap text-secondary-200"
-                        href="/"
+                        :href="homeUrl"
                     >Battle Factory</a>
                         
                     <button class="block px-3 py-1 text-xl leading-none bg-transparent border border-transparent border-solid rounded outline-none cursor-pointer lg:hidden focus:outline-none"
@@ -32,7 +32,7 @@
                     <ul class="flex flex-col mr-auto list-none lg:flex-row">
                         <li class="flex items-center">
                             <a class="w-full flex items-center px-3 py-4 text-xs font-bold uppercase lg:text-secondary-200 lg:hover:text-secondary-500 text-secondary-200 lg:py-2"
-                                href="/squads/submit"
+                                :href="submitUrl"
                             >
                                 <i class="mr-1 fa fa-arrow-alt-circle-up text-secondary-100"></i>
                                 {{ submitButton }}
@@ -64,7 +64,7 @@
                         >
                         </li>
                         <li class="flex items-center mt-4 lg:mt-0">
-                            <form method="GET" action="/squads">
+                            <form method="GET" :action="indexUrl">
                                 <button
                                 class=" text-center px-4 py-2 mb-3 ml-3 text-xs font-bold uppercase rounded shadow outline-none focus:ring-secondary-500 focus:ring-2 bg-secondary-100 text-secondary-500 active:bg-secondary-100 hover:shadow-md focus:outline-none lg:mr-1 lg:mb-0"
                                 type="submit"
@@ -108,7 +108,16 @@
             },
             indexButton : {
                 type : String,
-            }
+            },
+            homeUrl : {
+                default : '/'
+            },
+            submitUrl : {
+                default : '/squads/submit'
+            },
+            indexUrl : {
+                default : '/squads'
+            },
         },
 
         data() {

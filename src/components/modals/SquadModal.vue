@@ -31,11 +31,11 @@
                             <img class="inline-block w-3 h-3 mt-0.5"
                                 :src="countryFlag"
                                 :alt="country"
-                                :title="country_name"
+                                :title="countryName"
                             />
                         </template>
         
-                        <div class="" v-text="country_name"></div>
+                        <div class="" v-text="countryName"></div>
                     </div>
                 </template>
 
@@ -47,7 +47,7 @@
                         <a class="font-semibold text-gray-900 hover:text-gray-600"
                             target="_blank"
                             :href="link"
-                        >External Link</a>
+                        >{{ translations.link }}</a>
                     </div>
                 </template>
             </div>
@@ -60,7 +60,7 @@
             <!-- Mini Cards -->
             <div class="flex flex-row items-center justify-center mt-2 space-x-5 text-gray-900 cursor-default">
                 <!-- Active Members -->
-                <div class="flex flex-col items-center justify-center w-40 h-20 transition-colors duration-100 ease-in-out border border-dashed rounded-md border-secondary-200 hover:border-secondary-400">
+                <div class="flex flex-col items-center justify-center w-40 h-20 transition-colors duration-100 ease-in-out border rounded-md border-secondary-200 hover:border-secondary-400">
                     <div class="flex flex-row items-center justify-center">
                         <UsersGroupIcon margins="mr-3"/>
             
@@ -69,11 +69,11 @@
                         ></span>
                     </div>
         
-                    <div class="mt-2 text-sm text-gray-500 text-center">Active Members</div>
+                    <div class="mt-2 text-xs text-gray-500 text-center">{{ translations.members }}</div>
                 </div>
 
                 <!-- Ranks -->
-                <div class="flex flex-col items-center justify-center w-40 py-4 transition-colors duration-100 ease-in-out border border-dashed rounded-md border-secondary-200 hover:border-secondary-400">
+                <div class="flex flex-col items-center justify-center w-40 py-4 transition-colors duration-100 ease-in-out border rounded-md border-secondary-200 hover:border-secondary-400">
                     <div class="flex flex-row items-center justify-center">
                         <RankIcon 
                             :rank="rank"
@@ -81,13 +81,13 @@
                         />
                     </div>
         
-                    <div class="mt-2 text-sm text-gray-500 text-center"
+                    <div class="mt-2 text-xs text-gray-500 text-center"
                         v-text="rankLabel"
                     ></div>
                 </div>
 
                 <!-- Approval -->
-                <div class="flex flex-col items-center justify-center w-40 h-20 transition-colors duration-100 ease-in-out border border-dashed rounded-md border-secondary-200 hover:border-secondary-400">
+                <div class="flex flex-col items-center justify-center w-40 h-20 transition-colors duration-100 ease-in-out border rounded-md border-secondary-200 hover:border-secondary-400">
                     <div class="flex flex-row items-center justify-center"
                         :class="{ 'text-success-500' : !requires_approval , 'text-warning-500' : requires_approval }"
                     >
@@ -101,8 +101,8 @@
                         />
                     </div>
         
-                    <div class="mt-2 text-sm text-gray-500 text-center"
-                        v-text="requires_approval ? 'Requires Approval' : 'Open'"
+                    <div class="mt-2 text-xs text-gray-500 text-center"
+                        v-text="requires_approval ? translations.requiresApproval : translations.open"
                     ></div>
                 </div>
             </div>
@@ -122,6 +122,7 @@
 <script>
 
     import {squad} from "@utils/squad.js";
+    import countriesList from 'countries-list';
     
     import Modal from "@components/modals/Modal.vue";
     import LocationMarker from "@components/icons/LocationMarker.vue";
@@ -150,19 +151,21 @@
         mixins: [],
 
         props : {
-
+            translations : {
+                type : Object
+            }
         },
 
         data() {
             return {
-                title : "Squad Info",
+                title : "Info",
                 visible : false,
+                countries : countriesList.countries,
                 name : '',
                 code : '',
                 description : null,
                 verified : false,
                 country : '',
-                country_name : '',
                 link: '',
                 active_members : 1,
                 rank : '',
@@ -173,6 +176,12 @@
         },
 
         computed : {
+            countryName(){
+                let country = null;
+                if(this.country) country = this.countries[this.country.toUpperCase()];
+                return country ? country.name : null;
+            },
+
             countryFlag() {
                 return this.country ? 'https://flagcdn.com/32x24/'+this.country.toLowerCase()+'.png' : '';
             },
@@ -195,7 +204,6 @@
                 this.code = e.detail.code;
                 this.description = e.detail.description;
                 this.country = e.detail.country ? e.detail.country.toLowerCase() : '';
-                this.country_name = e.detail.country_name;
                 this.link = e.detail.link ? e.detail.link : '';
                 this.active_members = e.detail.active_members;
                 this.rank = e.detail.rank;
@@ -203,7 +211,7 @@
                 this.verified = e.detail.verified ? true : false;
                 this.featured = e.detail.featured ? true : false;
 
-                this.title = this.name + " Info";
+                this.title = this.name;
                 this.visible = true;
             });
         }

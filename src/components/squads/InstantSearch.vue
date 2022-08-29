@@ -4,6 +4,7 @@
         class="w-full"
         index-name="squads" 
         v-bind:search-client="searchClient"
+        :routing="routing"
     >
         <AisConfigure
             :hits-per-page.camel="12"
@@ -15,14 +16,14 @@
             <div class="flex flex-wrap items-center md:justify-center w-full">
                 <AisSortBy 
                     :items="[
-                        { value: 'squads', label: 'Latest' }, 
-                        { value: 'squads_oldest', label: 'Oldest' },
+                        { value: 'squads', label: indexTranslations.sortingLatest }, 
+                        { value: 'squads_oldest', label: indexTranslations.sortingOldest },
                         { value: 'squads_rank_desc', label: 'Rank ↙' },
                         { value: 'squads_rank_asc', label: 'Rank ↗' },
-                        { value: 'squads_active_members_desc', label: 'Active Members ↙' },
-                        { value: 'squads_active_members_asc', label: 'Active Members ↗' },
-                        { value: 'squads_name_desc', label: 'Name ↙' },
-                        { value: 'squads_name_asc', label: 'Name ↗' },
+                        { value: 'squads_active_members_desc', label: translations.members + ' ↙' },
+                        { value: 'squads_active_members_asc', label: translations.members + ' ↗' },
+                        { value: 'squads_name_desc', label: translations.name + ' ↙' },
+                        { value: 'squads_name_asc', label: translations.name + ' ↗' },
                     ]"
                     :class-names="{
                         'ais-SortBy': 'mt-2 md:mt-0 order-3 md:order-1 w-5/6 md:w-1/2 md:mr-1 w-full  md:w-fit min-w-max',
@@ -31,7 +32,7 @@
                     }"
                 />
                 <AisSearchBox
-                    placeholder="Search..."
+                    :placeholder="indexTranslations.searchPlaceholder"
                     show-loading-indicator
                     :class-names="{
                         'ais-SearchBox' : 'order-1 md:order-2 inline-block w-5/6 md:w-1/2',
@@ -47,6 +48,7 @@
                 <AisVoiceSearch
                     class="order-2 w-1/6 md:w-auto pl-2 md:order-3"
                     search-as-you-speak
+                    :button-title="indexTranslations.voicesearchTitle"
                     :class-names="{
                         'ais-VoiceSearch-status': 'hidden'
                     }"
@@ -96,10 +98,10 @@
                         <AisNumericMenu 
                             attribute="rank_value"
                             :items="[
-                                { label: 'All' },
+                                { label: indexTranslations.filterAll },
                                 { label: ' < Master 1200', end: 2 },
-                                { label: '1200-1800', start: 2, end: 5 },
-                                { label: '1800+', start: 5},
+                                { label: 'Master 1200-1800', start: 2, end: 5 },
+                                { label: 'Master 1800+', start: 5},
                             ]"
                         >
                             <template v-slot="{ items, refine }">
@@ -121,7 +123,7 @@
                     <AisPanel>
                         <template v-slot:header>
                             <p class="font-medium leading-tight text-base mt-0 mb-2 text-secondary-500">
-                                Active Members
+                                {{ translations.members }}
                             </p>
                         </template>
                         <AisRangeInput attribute="active_members" :min="1" :max="30">
@@ -166,7 +168,7 @@
                                             'text-secondary-500' : value.isRefined,
                                             'text-gray-600' : !value.isRefined
                                         }"      
-                                    >Open to Everyone</span>
+                                    >{{ translations.open }}</span>
                                     <span class="inline-block px-2 leading-3 mt-1 py-1 ml-2 text-xs font-semibold uppercase rounded-full text-secondary-600 bg-secondary-200"
                                     >{{ value.onFacetValue.count ?? 0}}
                                     </span>
@@ -189,7 +191,7 @@
                                             'text-secondary-500' : value.isRefined,
                                             'text-gray-600' : !value.isRefined
                                         }"  
-                                    >Verified</span>
+                                    >{{ translations.verified }}</span>
                                     <span class="inline-block px-2 leading-3 mt-1 py-1 ml-2 text-xs font-semibold uppercase rounded-full text-secondary-600 bg-secondary-200"
                                     >{{ value.onFacetValue.count ?? 0}}
                                     </span>
@@ -212,7 +214,7 @@
                                             'text-secondary-500' : value.isRefined,
                                             'text-gray-600' : !value.isRefined
                                         }"   
-                                    >Featured</span>
+                                    >{{ translations.featured }}</span>
                                     <span class="inline-block px-2 leading-3 mt-1 py-1 ml-2 text-xs font-semibold uppercase rounded-full text-secondary-600 bg-secondary-200"
                                     >{{ value.onFacetValue.count ?? 0}}
                                     </span>
@@ -224,14 +226,14 @@
                     <AisPanel>
                         <template v-slot:header>
                             <p class="font-medium leading-tight text-base mt-0 mb-2 text-secondary-500">
-                                Country
+                                {{ translations.country }}
                             </p>
                         </template>
                         <AisRefinementList 
                             attribute="country_name"
                             :limit="3"
                             searchable
-                            searchable-placeholder="Search Country..."
+                            :searchable-placeholder="indexTranslations.filterSearchCountryPlaceholder"
                             :class-names="{
                                 'ais-SearchBox-form' : 'pr-3 sm:pr-auto',
                                 'ais-SearchBox-input' : 'w-full sm:w-1/2 px-3 py-1 text-sm leading-8 text-gray-700 transition-colors duration-200 ease-in-out bg-white border border-gray-300 rounded outline-none focus:border-secondary-500 focus:ring-2 focus:ring-secondary-200',
@@ -247,7 +249,7 @@
                             }"
                         >
                             <template v-slot:noResults="{ query }">
-                                <span class="text-xs text-gray-500 ml-2">No results for <q>{{ query }}</q></span>
+                                <span class="text-xs text-gray-500 ml-2">{{ indexTranslations.noResults}} <q>{{ query }}</q></span>
                             </template>
                         </AisRefinementList>
                     </AisPanel>
@@ -262,7 +264,7 @@
                             @click.prevent="refine(); activeMembers = [1,30]"
                             :disabled="!canRefine"
                         >
-                            Clear filters
+                            {{ indexTranslations.filterClear }}
                         </button>
                     </template>
                 </AisClearRefinements>
@@ -281,6 +283,7 @@
                 <template v-slot:item="{ item }" >
                     <Card 
                         v-bind="item"
+                        :translations="translations"
                     >
                         <template #name>
                             <AisHighlight attribute="name" :hit="item" />
@@ -298,7 +301,7 @@
                             :disabled="isLastPage"
                             @click="refineNext"
                         >
-                            Show More
+                            {{ indexTranslations.showMore }}
                         </button>
                     </div>
                 </template>
@@ -308,7 +311,7 @@
         <div class="mt-12 space-y-2 sm:space-y-auto px-6 flex flex-col sm:flex-row text-xs text-gray-500 justify-center items-center sm:justify-between">
             <AisStats>
                 <template v-slot="{  nbHits, processingTimeMS }">
-                    <span class="font-medium">{{nbHits}}</span> results found in
+                    <span class="font-medium">{{nbHits}}</span> {{ indexTranslations.stats }}
                     <span  class="font-medium">{{ processingTimeMS }}ms</span>
                 </template>
             </AisStats>
@@ -321,6 +324,8 @@
 <script>
 
     import algoliasearch from 'algoliasearch/lite';
+    import { history as historyRouter } from 'instantsearch.js/es/lib/routers';
+    import { singleIndex as singleIndexMapping } from 'instantsearch.js/es/lib/stateMappings';
     import { 
             AisInstantSearch, AisConfigure, AisStats, 
             AisPoweredBy, AisSearchBox, AisVoiceSearch, 
@@ -363,9 +368,22 @@
             AisClearRefinements,
         },
 
-        mixins : [escapable],
+        mixins: [escapable],
 
-        props: ['algoliaAppId','algoliaClient'],
+        props: {
+            algoliaAppId : {
+                type : String
+            },
+            algoliaClient : {
+                type : String
+            },
+            translations : {
+                type : Object
+            },
+            indexTranslations : {
+                type : Object
+            }
+        },
 
         data(){
             return {
@@ -373,6 +391,10 @@
                     this.algoliaAppId,
                     this.algoliaClient
                 ),
+                routing: {
+                    router: historyRouter(),
+                    stateMapping: singleIndexMapping('squads'),
+                },
                 sidebarVisible : false,
                 activeMembers : [1,30],
             }

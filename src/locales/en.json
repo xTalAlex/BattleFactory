@@ -1,4 +1,16 @@
 {
+   "general" : {
+      "open" : "Open to Everyone",
+      "requires-approval" : "Requires Approval",
+      "link" : "External Link",
+      "members" : "Active Members",
+      "featured" : "Featured",
+      "verified" : "Verified",
+      "veteran" : "Veteran",
+      "ultra" : "Ultra",
+      "name" : "Name"
+   },
+
    "layout" : {
       "navbar" : {
          "submit" : "Submit your squad",
@@ -17,8 +29,26 @@
       }
    },
 
-   "components" : {
-      
+   "alert" : {
+      "success" : {
+         "squad-submitted" : "Your Squad has been listed!"
+      },
+      "error" : {
+         "generic" : "Something went wrong. Submission not sent.",
+         "validation" : "Some information is not valid!"
+      }
+   },
+
+   "modal" : {
+      "confirm" : {
+         "link" : {
+            "title" : "Want to leave?",
+            "description" : "You are being redirected to an external page.",
+            "confirm" : "Go",
+            "cancel" : "Stay"
+ 
+         }
+      }
    },
    
    "404" : {
@@ -52,9 +82,38 @@
 
    "squads" : {
 
-      "index" : {},
+      "index" : {
+         "sorting" : {
+            "latest" : "Latest",
+            "oldest" : "Oldest"
+         },
+         "search-placeholder" : "Search...",
+         "voicesearch-title" : "Voice search",
+         "filters" : {
+            "all" : "All",
+            "search-country-placeholder" : "Search Country...",
+            "clear" : "Clear filters"
+         },
+         "more" : "Show More",
+         "stats" : "results found in",
+         "no-results" : "No results for"
+      },
 
-      "submit" : {}
+      "submit" : {
+         "title" : "Submit Your Squad",
+         "subtitle" : "Fill the form with some information about your Squad.",
+         "email" : "Email",
+         "email-hint" : "Without a valid email you wont be able to edit your Squad later.",
+         "name" : "Squad Name",
+         "code" : "Code",
+         "members" : "Active Members",
+         "approval" : "Requires Approval",
+         "country" : "Country",
+         "rank" : "Average Rank",
+         "link" : "Link (Discord, Instagram, Website, ...)",
+         "description" : "Description",
+         "submit" : "Submit"
+      }
 
    }
 }

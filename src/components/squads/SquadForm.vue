@@ -1,13 +1,15 @@
 <template>
     <form id="form" class="relative z-10 flex flex-col w-full p-8 mx-auto rounded-lg shadow-md lg:ml-32 lg:w-2/3 xl:w-1/2 bg-secondary-50">
         
-        <h2 class="mb-1 text-3xl font-medium text-gray-900 title-font">Submit Your Squad</h2>
-        <p class="mb-5 leading-relaxed text-gray-600">Fill the form with some information about your Squad.</p>
+        <h2 class="mb-1 text-3xl font-medium text-gray-900 title-font"
+        >{{ title }}</h2>
+        <p class="mb-5 leading-relaxed text-gray-600"
+        >{{ subtitle }}</p>
 
         <div class="relative mb-4">
             <label for="email" class="text-sm font-medium leading-7 text-gray-600"
                 :class="{ 'text-red-500' : errors.email }"
-            >Email</label>
+            >{{ emailLabel }}</label>
             <div class="relative">
                 <input type="email" class="w-full py-1 pl-8 pr-3 text-base leading-8 text-gray-700 transition-colors duration-200 ease-in-out bg-white border border-gray-300 rounded outline-none focus:border-secondary-500 focus:ring-2 focus:ring-secondary-200"
                     id="email" name="email" maxlength="50" 
@@ -20,13 +22,15 @@
             </div>
 
             <p class="text-xs text-red-500" v-if="errors.email" v-text="errors.email[0]"></p>
-            <p class="text-xs text-gray-500" v-if="!errors.email">Without a valid email you wont be able to edit your Squad later.</p>
+            <p class="text-xs text-gray-500" v-if="!errors.email">
+                {{ emailHint }}
+            </p>
         </div>
         
         <div class="relative mb-4">
             <label for="squad_name" class="text-sm font-medium leading-7 text-gray-600"
                 :class="{ 'text-red-500' : errors.name }"
-            >Squad Name <span class="text-red-500">*</span></label>
+            >{{ squadNameLabel }}<span class="text-red-500"> *</span></label>
             <input type="text" class="w-full px-3 py-1 text-base leading-8 text-gray-700 transition-colors duration-200 ease-in-out bg-white border border-gray-300 rounded outline-none focus:border-secondary-500 focus:ring-2 focus:ring-secondary-200"
                 id="squad_name" name="squad_name" maxlength="15" 
                 @change="delete errors.name"
@@ -39,7 +43,7 @@
         <div class="relative mb-4">
             <label for="code" class="text-sm font-medium leading-7 text-gray-600"
                 :class="{ 'text-red-500' : errors.code }"
-            >Code <span class="text-red-500">*</span></label>
+            >{{ codeLabel }}<span class="text-red-500"> *</span></label>
             <input type="text" class="w-full px-3 py-1 text-base leading-8 text-gray-700 transition-colors duration-200 ease-in-out bg-white border border-gray-300 rounded outline-none focus:border-secondary-500 focus:ring-2 focus:ring-secondary-200"
                 id="code" name="code" maxlength="9" 
                 placeholder="#"
@@ -55,7 +59,7 @@
             <div class="w-full mb-4 sm:w-1/2">
                 <label for="active_members" class="text-sm font-medium leading-7 text-gray-600"
                     :class="{ 'text-red-500' : errors.active_members }"
-                >Active Members <span class="text-red-500">*</span></label>
+                >{{ activeMembersLabel }}<span class="text-red-500"> *</span></label>
                 <input type="number" class="w-full px-3 py-1 text-base leading-8 text-gray-700 transition-colors duration-200 ease-in-out bg-white border border-gray-300 rounded outline-none focus:border-secondary-500 focus:ring-2 focus:ring-secondary-200"
                     id="active_members" name="active_members" 
                     min="1" max="30"
@@ -78,7 +82,7 @@
                     <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-secondary-200 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-secondary-500"></div>
                     <span class="ml-3 text-sm leading-5 text-gray-600"
                         :class="{ 'text-red-500' : errors.requires_approval }"
-                    >Requires Approval</span>
+                    >{{ requiresApprovalLabel }}</span>
                 </label>
 
                 <p class="text-xs text-red-500" v-if="errors.requires_approval" v-text="errors.requires_approval[0]"></p>
@@ -89,7 +93,7 @@
         <div class="relative mb-4">
             <label for="country" class="text-sm font-medium leading-7 text-gray-600"
                 :class="{ 'text-red-500' : errors.country }"
-            >Country</label>
+            >{{ countryLabel }}</label>
             <select class="w-full px-3 py-1 text-base leading-8 text-gray-700 transition-colors duration-200 ease-in-out bg-white border border-gray-300 rounded appearance-none focus:outline-none focus:ring-2 focus:ring-secondary-200 focus:border-secondary-500"
                 name="country" id="country" 
                 @change="delete errors.country"
@@ -97,7 +101,7 @@
             >
                 <option value="">-</option>
                 <option v-for="( country,iso_code) in countries" v-bind:key="iso_code" :value="iso_code">
-                    {{ country.native }}
+                    {{ country.name }}
                 </option>
             </select>
             
@@ -108,7 +112,7 @@
             <fieldset class="">
                 <legend class="text-sm font-medium leading-7 text-gray-600"
                     :class="{ 'text-red-500' : errors.rank }"
-                >Avarage Rank</legend>
+                >{{ avgRankLabel }}</legend>
                 <div class="grid justify-center w-full grid-cols-3 px-4 py-2 mx-auto sm:grid-cols-6 md:grid-cols-6">
                     <template v-for="rank in ranks" v-bind:key="rank">
                         <div class="relative px-1 py-1 m-4 mx-auto rounded-lg focus-within:ring-2 focus-within:ring-secondary-500"
@@ -137,7 +141,7 @@
         <div class="relative mb-4">
             <label for="link" class="text-sm font-medium leading-7 text-gray-600"
                 :class="{ 'text-red-500' : errors.link }"
-            >Link (Discord, Instagram, Website, ...)</label>
+            >{{ linkLabel }}</label>
             <input type="url" class="w-full px-3 py-1 text-base leading-8 text-gray-700 transition-colors duration-200 ease-in-out bg-white border border-gray-300 rounded outline-none focus:border-secondary-500 focus:ring-2 focus:ring-secondary-200"
                 id="link" name="link" maxlength="255" 
                 @change="delete errors.link; validateLink()"
@@ -150,7 +154,7 @@
         <div class="relative mb-4">
             <label for="description" class="text-sm font-medium leading-7 text-gray-600"
                 :class="{ 'text-red-500' : errors.description }"
-            >Description
+            >{{ descriptionLabel }}
             </label>
             <div class="text-xs text-right text-gray-500"    
             >
@@ -170,9 +174,9 @@
         
         <button type="button" class="px-6 py-2 text-lg text-white border-0 rounded disabled:bg-secondary-400 bg-secondary-500 focus:outline-none hover:bg-secondary-600"
             id="submitButton"
-            :disabled="( name.length<3 || code.length<8 ) || Object.keys(errors).length>0"
-            @click.once="submit()"
-        >Submit</button>
+            :disabled="submitting || ( name.length<3 || code.length<8 ) || Object.keys(errors).length>0"
+            @click="submit()"
+        >{{ submitLabel }}</button>
     </form>
 </template>
 
@@ -197,7 +201,56 @@
             },
             locale : {
                 default : '',
-            }
+            },
+            title : {
+                default : '',
+            },
+            subtitle : {
+                default : '',
+            },
+            emailLabel : {
+                default : 'Email',
+            },
+            emailHint : {
+                default : '',
+            },
+            squadNameLabel : {
+                default : 'Squad Name',
+            },
+            codeLabel : {
+                default : 'Code',
+            },
+            activeMembersLabel : {
+                default : 'Active Members',
+            },
+            requiresApprovalLabel : {
+                default : 'Requires Approval',
+            },
+            countryLabel : {
+                default : 'Country',
+            },
+            avgRankLabel : {
+                default : 'Average Rank',
+            },
+            linkLabel : {
+                default : 'Link',
+            },
+            descriptionLabel : {
+                default : 'Description',
+            },
+            submitLabel : {
+                default : 'Submit',
+            },
+            successMessage : {
+                default : 'Success',
+            },
+            validationErrorMessage : {
+                default : 'Validation error',
+            },
+            genericErrorMessage : {
+                default : 'Generic error'
+            },
+            
         },
         
         data() {
@@ -214,6 +267,7 @@
                 selected_rank : '1200',
                 link : '',
                 description : '',
+                submitting : false,
             }
         },
 
@@ -273,6 +327,7 @@
             },
 
             submit(){
+                this.submitting = true;
                 const formData = new FormData(document.getElementById('form'));
                 let bodyObject = {};
                 formData.forEach(function(value, key){
@@ -297,7 +352,7 @@
                         {
                             response.json().then( result => this.success = true );
                             this.reset();
-                            document.notify('success','Your Squad has been listed!');
+                            document.notify('success',this.successMessage);
                         }
                         else
                         {
@@ -305,18 +360,20 @@
                                 response.json().then( ({errors}) => {
                                     this.errors = errors;
                                 } );
-                                document.notify('error','Some information is not valid!');
+                                document.notify('error',this.validationErrorMessage);
                                 window.location.href = '#form';
                             }
                             else{
-                                document.notify('error','Something went wrong. Submission not sent.');
+                                document.notify('error',this.genericErrorMessage);
                                 // send to API Log
                             }
                         }
+                        this.submitting = false;
                     })
                     .catch( error => {
-                        document.notify('error','Something went wrong. Submission not sent.');
+                        document.notify('error',this.genericErrorMessage);
                         // send to API Log
+                        this.submitting = false;
                     });
             }
             

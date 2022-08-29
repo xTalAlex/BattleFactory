@@ -1,12 +1,40 @@
 ---
-import { changeLanguage } from "i18next";
+import { t, changeLanguage } from "i18next";
 import Layout from "@layouts/Layout.astro";
 import SquadModal from "@components/modals/SquadModal.vue";
 import InstantSearch from "@components/squads/InstantSearch.vue";
-const algolia_app_id = import.meta.env.ALGOLIA_APP_ID;
-const algolia_client = import.meta.env.ALGOLIA_CLIENT;
 
 changeLanguage("it");
+
+const algolia_app_id = import.meta.env.ALGOLIA_APP_ID;
+const algolia_client = import.meta.env.ALGOLIA_CLIENT;
+const translations = {
+    "name": t("general.name"),
+    "open": t("general.open"),
+    "requiresApproval": t("general.requires-approval"),
+    "link": t("general.link"),
+    "members": t("general.members"),
+    "featured": t("general.featured"),
+    "verified": t("general.verified"),
+    "veteran": t("general.veteran"),
+    "ultra": t("general.ultra"),
+    "confirmTitle": t("modal.confirm.link.title"),
+    "confirmDescription": t("modal.confirm.link.description"),
+    "confirmConfirm": t("modal.confirm.link.confirm"),
+    "confirmCancel": t("modal.confirm.link.cancel"),
+};
+const indexTranslations = {
+    "sortingLatest": t("squads.index.sorting.latest"),
+    "sortingOldest": t("squads.index.sorting.oldest"),
+    "searchPlaceholder": t("squads.index.search-placeholder"),
+    "voicesearchTitle": t("squads.index.voicesearch-title"),
+    "filterAll": t("squads.index.filters.all"),
+    "filterSearchCountryPlaceholder": t("squads.index.filters.search-country-placeholder"),
+    "filterClear": t("squads.index.filters.clear"),
+    "showMore": t("squads.index.more"),
+    "stats": t("squads.index.stats"),
+    "noResults": t("squads.index.no-results")
+};
 ---
 
 <Layout subtitle="Squads">
@@ -15,13 +43,18 @@ changeLanguage("it");
         <div class="mx-12 lg:px-10 lg:max-w-5xl lg:mx-auto">
             
             <InstantSearch client:only="vue"
-                algoliaAppId={algolia_app_id}
-                algoliaClient={algolia_client}
+                algoliaAppId={ algolia_app_id }
+                algoliaClient={ algolia_client }
+                translations={ translations }
+                indexTranslations={ indexTranslations }
             />
+
                 
         </div>
     </section>
 
-    <SquadModal client:only="vue" slot="modals"/>
+    <SquadModal client:only="vue" slot="modals"
+        translations={ translations }
+    />
     
 </Layout>
