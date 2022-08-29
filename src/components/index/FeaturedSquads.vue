@@ -56,7 +56,7 @@
         },
 
         created() {
-            fetch("https://battlefactory-admin.herokuapp.com/api/squads")
+            fetch("https://uniteagency-admin.herokuapp.com/api/squads")
                 .then(response => response.json())
                 .then(result => this.squads = result.data.slice(0, 9));
         },

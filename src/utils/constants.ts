@@ -1,4 +1,4 @@
-export const APP_NAME = 'Battle Factory'
+export const APP_NAME = 'Unite Agency'
 export const RANKS = [
     'veteran','ultra','1200','1400','1800'
 ];

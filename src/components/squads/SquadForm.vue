@@ -346,7 +346,7 @@
                     body : JSON.stringify(bodyObject)
                 };
 
-                fetch('https://battlefactory-admin.herokuapp.com/api/squads', options)
+                fetch('https://uniteagency-admin.herokuapp.com/api/squads', options)
                     .then( response => {
                         if(response.ok)
                         {

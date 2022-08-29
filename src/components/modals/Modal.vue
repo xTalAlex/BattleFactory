@@ -21,10 +21,10 @@
                     <div class="relative max-h-screen overflow-y-auto flex mx-auto flex-col w-full border-0 rounded-lg shadow-lg outline-none bg-primary-50 focus:outline-none">
                         
                         <div class="flex items-start justify-between p-5 text-gray-900 border-b border-solid rounded-t border-primary-200">
-                            <h3 class="text-3xl font-semibold"
+                            <h3 class="text-2xl font-semibold"
                                 v-text="title"
                             ></h3>
-                            <button class="z-50 float-right p-1 ml-auto text-3xl font-semibold leading-none bg-transparent border-0 outline-none text-secondary-500 focus:outline-none"
+                            <button class="z-50 float-right p-1 ml-auto text-2xl font-semibold leading-none bg-transparent border-0 outline-none text-secondary-500 focus:outline-none"
                                 @click="close()"
                             >
                                 <span class="block w-6 h-6 text-2xl bg-transparent outline-none focus:outline-none">

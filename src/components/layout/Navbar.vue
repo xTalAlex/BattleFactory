@@ -12,7 +12,7 @@
                 <div class="relative flex justify-between w-full lg:w-auto lg:static lg:block lg:justify-start">
                     <a class="inline-block py-2 mr-4 text-sm font-bold leading-relaxed uppercase outline-none focus:outline-none whitespace-nowrap text-secondary-200"
                         :href="homeUrl"
-                    >Battle Factory</a>
+                    >Unite Agency</a>
                         
                     <button class="block px-3 py-1 text-xl leading-none bg-transparent border border-transparent border-solid rounded outline-none cursor-pointer lg:hidden focus:outline-none"
                         type="button"

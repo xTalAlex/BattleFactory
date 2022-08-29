@@ -9,7 +9,7 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   // output: 'server',
   // adapter: netlify(),
-  site: 'https://battlefactory.netlify.app',
+  site: 'https://uniteagency.netlify.app',
   experimental: {
     integrations: true,
   },
