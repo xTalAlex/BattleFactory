@@ -236,7 +236,7 @@
                             :searchable-placeholder="indexTranslations.filterSearchCountryPlaceholder"
                             :class-names="{
                                 'ais-SearchBox-form' : 'pr-3 sm:pr-auto',
-                                'ais-SearchBox-input' : 'w-full sm:w-1/2 px-3 py-1 text-sm leading-8 text-gray-700 transition-colors duration-200 ease-in-out bg-white border border-gray-300 rounded outline-none focus:border-secondary-500 focus:ring-2 focus:ring-secondary-200',
+                                'ais-SearchBox-input' : 'w-full sm:w-3/4 px-3 py-1 text-sm leading-8 text-gray-700 transition-colors duration-200 ease-in-out bg-white border border-gray-300 rounded outline-none focus:border-secondary-500 focus:ring-2 focus:ring-secondary-200',
                                 'ais-SearchBox-loadingIndicator' : 'hidden',
                                 'ais-SearchBox-submit' : 'hidden',
                                 'ais-SearchBox-reset' : 'hidden',
