@@ -199,7 +199,7 @@
                             </template>
                         </AisToggleRefinement>
 
-                        <AisToggleRefinement attribute="featued" label="Featured">
+                        <AisToggleRefinement attribute="featured" label="Featured">
                             <template v-slot="{ value, refine }">
                                 <label for="featured" class=" relative inline-flex items-center cursor-pointer"
                                     @click.prevent="refine(value)"
