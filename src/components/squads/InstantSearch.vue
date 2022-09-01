@@ -98,9 +98,9 @@
                         <AisNumericMenu 
                             attribute="rank_value"
                             :items="[
-                                { label: indexTranslations.filterAll },
-                                { label: ' < Master 1200', end: 2 },
-                                { label: 'Master 1200-1800', start: 2, end: 5 },
+                                { label: 'All' },
+                                { label: '< Master 1200', end: 1 },
+                                { label: 'Master 1200-1800', start: 2, end: 4 },
                                 { label: 'Master 1800+', start: 5},
                             ]"
                         >
