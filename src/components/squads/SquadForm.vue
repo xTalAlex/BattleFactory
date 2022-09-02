@@ -121,7 +121,7 @@
                             <label :for="rank" class="relative text-sm font-medium leading-7 text-gray-600 capitalize cursor-pointer" :title="rank>=1200 ? 'Master '+rank : (rank[0].toUpperCase() + rank.substring(1))">
                                 <RankIcon sizes="w-12" :rank="rank"/>
                                 <span class="absolute inline-flex items-center justify-center px-1 py-1 text-xs font-medium leading-none transform translate-x-1/2 -translate-y-1/2 rounded-full text-primary-100 bg-primary-600 top-2 right-2"
-                                    v-text="rank>=1200 ? '+'+rank : rank"
+                                    v-text="rankLabel(rank)"
                                 ></span>
                             </label>
                             <input type="radio" 
@@ -250,6 +250,12 @@
             genericErrorMessage : {
                 default : 'Generic error'
             },
+            veteranLabel : {
+                default : 'Veteran'
+            },
+            ultraLabel : {
+                default : 'Ultra'
+            },
             
         },
         
@@ -276,16 +282,19 @@
                 return this.country ? 'https://flagcdn.com/32x24/'+this.country.toLowerCase()+'.png' : '';
             },
 
-            rankLabel(){
-                return this.rank>=1200 ? 'Master '+this.rank : (this.rank[0].toUpperCase() + this.rank.substring(1));
-            },
-
             rankIcon(){
                 return '/img/'+ (this.rank>=1200 ? 'master' : this.rank) +'_icon.png';
             },
         },
 
         methods: {
+
+            rankLabel(rank){
+                let label = rank;
+                if(this.veteranLabel && rank.toLowerCase() == 'veteran' ) label = this.veteranLabel;
+                if(this.ultraLabel && rank.toLowerCase() == 'ultra' ) label = this.ultraLabel;
+                return rank>=1200 ? rank : (label[0].toUpperCase() + label.substring(1));
+            },
 
             validateCode()
             {
