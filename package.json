@@ -23,7 +23,7 @@
     "@astrojs/vue": "^1.0.0",
     "algoliasearch": "^4.14.2",
     "animate.css": "^4.1.1",
-    "astro-i18next": "^1.0.0-beta.5",
+    "astro-i18next": "^1.0.0-beta.7",
     "countries-list": "^2.6.1",
     "i18next-fs-backend": "^1.1.5",
     "instantsearch.js": "^4.44.0",

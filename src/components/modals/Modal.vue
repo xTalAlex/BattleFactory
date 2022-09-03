@@ -27,8 +27,8 @@
                             <button class="z-50 float-right p-1 ml-auto text-2xl font-semibold leading-none bg-transparent border-0 outline-none text-secondary-500 focus:outline-none"
                                 @click="close()"
                             >
-                                <span class="block w-6 h-6 text-2xl bg-transparent outline-none focus:outline-none">
-                                x
+                                <span class="flex justify-center items-end w-6 h-6 text-2xl bg-transparent outline-none focus:outline-none">
+                                &times;
                                 </span>
                             </button>
                         </div>
