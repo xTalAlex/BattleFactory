@@ -19,14 +19,14 @@ export default defineConfig({
     }),
     vue(),
     astroI18next(),
-    // sitemap({
-    //   i18n : {
-    //     defaultLocale: 'en',
-    //     locales: {
-    //       en: 'en',
-    //       it: 'it',
-    //     },
-    //   }
-    // })
+    sitemap({
+      i18n : {
+        defaultLocale: 'en',
+        locales: {
+          en: 'en',
+          it: 'it',
+        },
+      }
+    })
   ],
 });
