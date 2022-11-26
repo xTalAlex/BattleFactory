@@ -348,27 +348,25 @@
                     bodyObject[key] = value;
                 });
 
-                // const endpoint = 'https://uniteagency-admin.herokuapp.com/api/squads';
-
-                // const options = {
-                //     headers : {
-                //         "Content-Type": "application/json",
-                //         "Accept": "application/json",
-                //         "X-Requested-With": "XMLHttpRequest"
-                //     },
-                //     method : "POST",
-                //     body : JSON.stringify(bodyObject)
-                // };
-
-                const endpoint = '/';
-
+                const endpoint = 'https://uniteagency-admin.herokuapp.com/api/squads';
                 const options = {
                     headers : {
-                        "Content-Type": "application/x-www-form-urlencoded"
+                        "Content-Type": "application/json",
+                        "Accept": "application/json",
+                        "X-Requested-With": "XMLHttpRequest"
                     },
                     method : "POST",
-                    body : new URLSearchParams( bodyObject ).toString()
+                    body : JSON.stringify(bodyObject)
                 };
+
+                // const endpoint = '/';
+                // const options = {
+                //     headers : {
+                //         "Content-Type": "application/x-www-form-urlencoded"
+                //     },
+                //     method : "POST",
+                //     body : new URLSearchParams( bodyObject ).toString()
+                // };
 
                 fetch(endpoint, options)
                     .then( response => {
