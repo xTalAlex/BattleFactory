@@ -1,6 +1,9 @@
 <template>
-    <form id="form" class="relative z-10 flex flex-col w-full p-8 mx-auto rounded-lg shadow-md lg:ml-32 lg:w-2/3 xl:w-1/2 bg-secondary-50">
-        
+    <form id="squadForm" class="relative z-10 flex flex-col w-full p-8 mx-auto rounded-lg shadow-md lg:ml-32 lg:w-2/3 xl:w-1/2 bg-secondary-50"
+        netlify
+    >
+        <input type="hidden" name="form-name" value="squadForm" />
+
         <h2 class="mb-1 text-3xl font-medium text-gray-900 title-font"
         >{{ title }}</h2>
         <p class="mb-5 leading-relaxed text-gray-600"
@@ -337,7 +340,7 @@
 
             submit(){
                 this.submitting = true;
-                const formData = new FormData(document.getElementById('form'));
+                const formData = new FormData(document.getElementById('squadForm'));
                 let bodyObject = {};
                 formData.forEach(function(value, key){
                     if(key == 'squad_name') key='name';
@@ -345,17 +348,29 @@
                     bodyObject[key] = value;
                 });
 
+                // const endpoint = 'https://uniteagency-admin.herokuapp.com/api/squads';
+
+                // const options = {
+                //     headers : {
+                //         "Content-Type": "application/json",
+                //         "Accept": "application/json",
+                //         "X-Requested-With": "XMLHttpRequest"
+                //     },
+                //     method : "POST",
+                //     body : JSON.stringify(bodyObject)
+                // };
+
+                const endpoint = '/';
+
                 const options = {
                     headers : {
-                        "Content-Type": "application/json",
-                        "Accept": "application/json",
-                        "X-Requested-With": "XMLHttpRequest"
+                        "Content-Type": "application/x-www-form-urlencoded"
                     },
                     method : "POST",
-                    body : JSON.stringify(bodyObject)
+                    body : new URLSearchParams( bodyObject ).toString()
                 };
 
-                fetch('https://uniteagency-admin.herokuapp.com/api/squads', options)
+                fetch(endpoint, options)
                     .then( response => {
                         if(response.ok)
                         {
@@ -370,7 +385,7 @@
                                     this.errors = errors;
                                 } );
                                 document.notify('error',this.validationErrorMessage);
-                                window.location.href = '#form';
+                                window.location.href = '#squadForm';
                             }
                             else{
                                 document.notify('error',this.genericErrorMessage);
