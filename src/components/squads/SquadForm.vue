@@ -178,7 +178,7 @@
         <button type="button" class="px-6 py-2 text-lg text-white border-0 rounded disabled:bg-secondary-400 bg-secondary-500 focus:outline-none hover:bg-secondary-600"
             id="submitButton"
             :disabled="submitting || ( name.length<3 || code.length<8 ) || Object.keys(errors).length>0"
-            @click="submit()"
+            @click.prevent="submit()"
         >{{ submitLabel }}</button>
     </form>
 </template>
@@ -315,7 +315,7 @@
             validateLink()
             {
                 if(this.link){
-                    prefixes =  ["https://","http://"]
+                    var prefixes =  ["https://","http://"];
                     if (
                         (this.link.toLowerCase().substr(0, prefixes[0].length) !== prefixes[0]) &&
                         (this.link.toLowerCase().substr(0, prefixes[1].length) !== prefixes[1])
