@@ -78,7 +78,7 @@
             <div class="w-full py-4 my-auto sm:w-1/2 sm:text-center">
                 <label for="requires_approval" class="relative inline-flex items-center cursor-pointer">
                     <input type="checkbox" class="sr-only peer"
-                        name="requires_approval" id="requires_approval" value="1" 
+                        name="requires_approval" id="requires_approval" value="true" 
                         @change="delete errors.requires_approval"
                         v-model="requires_approval"
                     >
@@ -330,7 +330,7 @@
                 this.email = '';
                 this.name = '';
                 this.code = '';
-                this.requires_approval = '';
+                this.requires_approval = false;
                 this.active_members = 1;
                 this.country = '';
                 this.selected_rank = '1200';
@@ -343,7 +343,7 @@
                 const formData = new FormData(document.getElementById('squadForm'));
                 let bodyObject = {};
                 formData.forEach(function(value, key){
-                    if(key == 'squad_name') key='name';
+                    //if(key == 'squad_name') key='name';
                     if(key == 'country' && value ) value = value.toLowerCase();
                     bodyObject[key] = value;
                 });
@@ -372,7 +372,8 @@
                     .then( response => {
                         if(response.ok)
                         {
-                            response.json().then( result => this.success = true );
+                            //response.json().then( result => this.success = true );
+                            this.success = true;
                             this.reset();
                             document.notify('success',this.successMessage);
                         }
@@ -392,7 +393,7 @@
                         }
                         this.submitting = false;
                     })
-                    .catch( error => {
+                    .catch( (error) => {
                         document.notify('error',this.genericErrorMessage);
                         // send to API Log
                         this.submitting = false;
