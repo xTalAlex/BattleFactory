@@ -42,7 +42,7 @@
 
 <script>
     import algoliasearch from 'algoliasearch/lite';
-    import {AisInstantSearch, AisConfigure, AisHits} from 'vue-instantsearch/vue3/es';
+    import {AisInstantSearch, AisConfigure, AisHits} from 'vue-instantsearch/vue3/es/index.js';
 
     import {RANKS} from '@utils/constants';
     import Card from '@components/Card.vue';

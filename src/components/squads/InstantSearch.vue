@@ -333,7 +333,7 @@
             AisSortBy, AisPanel, AisRefinementList, 
             AisRangeInput, AisToggleRefinement, AisNumericMenu,
             AisRatingMenu, AisClearRefinements
-        } from 'vue-instantsearch/vue3/es';
+        } from 'vue-instantsearch/vue3/es/index.js';
 
     import { escapable } from "@utils/escapable";
     
