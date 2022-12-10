@@ -11,31 +11,38 @@
                 </div>
             </div>
 
-            <div class="flex flex-wrap justify-center">
-                <div v-if="squads.length">
-                    <div class="w-full px-4 mb-12 md:w-6/12 lg:w-4/12" v-for="squad in squads" :key="squad.code">
-                        <Card 
-                            v-bind="squad"
-                            :rank="squad.rank || ranks[0]"
-                            :translations="translations"
-                        />
-                    </div>
-                </div>
-                <div v-else>
-                    <div>
-                        <svg class="animate-spin h-12 w-12 text-secondary-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                            <circle class="opacity-25 stroke-secondary-500" cx="12" cy="12" r="10" stroke-width="4"></circle>
-                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                        </svg>
-                    </div>
-                </div>
-            </div>
+
+            <AisInstantSearch
+                class="w-full"
+                index-name="squads" 
+                v-bind:search-client="searchClient"
+            >
+                <!-- <AisConfigure
+                    :hits-per-page.camel="6"
+                    filters="featured:true"
+                /> -->
+                <AisConfigure
+                    :hits-per-page.camel="6"
+                />
+                <AisHits class="flex flex-wrap justify-center">
+                    <template v-slot="{ items }" >
+                        <div class="w-full px-4 mb-12 md:w-6/12 lg:w-4/12" v-for="item in items" :key="item.code">
+                            <Card 
+                                v-bind="item"
+                                :translations="translations"
+                            ></Card>
+                        </div>
+                    </template>
+                </AisHits>
+            </AisInstantSearch>
 
         </div>
     </section>
 </template>
 
 <script>
+    import algoliasearch from 'algoliasearch/lite';
+    import {AisInstantSearch, AisConfigure, AisHits} from 'vue-instantsearch/vue3/es';
 
     import {RANKS} from '@utils/constants';
     import Card from '@components/Card.vue';
@@ -43,10 +50,19 @@
     export default {
 
         components: {
-            Card
+            Card,
+            AisInstantSearch,
+            AisConfigure,
+            AisHits,
         },
 
         props : {
+            algoliaAppId : {
+                type : String
+            },
+            algoliaClient : {
+                type : String
+            },
             title : {
                 type: String
             },
@@ -57,12 +73,17 @@
 
         data() {
             return {
+                searchClient: algoliasearch(
+                    this.algoliaAppId,
+                    this.algoliaClient
+                ),
                 squads: [],
                 ranks : RANKS,
             }
         },
 
         methods : {
+
         },
 
         created() {

@@ -11,6 +11,9 @@ import { Trans } from "astro-i18next/components";
 
 changeLanguage("it");
 
+const algolia_app_id = import.meta.env.ALGOLIA_APP_ID;
+const algolia_client = import.meta.env.ALGOLIA_CLIENT;
+
 const translations = {
     "open": t("general.open"),
     "requiresApproval": t("general.requires-approval"),
@@ -35,6 +38,8 @@ const translations = {
     <Intro/>
 
     <FeaturedSquads client:load 
+      algoliaAppId={ algolia_app_id }
+      algoliaClient={ algolia_client }
       title={ t("index.featured-squads.title") }
       translations={ translations }
     >
