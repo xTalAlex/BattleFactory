@@ -1,41 +1,37 @@
 <template>
-    <div :id="reference">  
-        <slot></slot>
-    </div>
+  <div :id="reference">
+    <slot></slot>
+  </div>
 </template>
 
 <script>
+import tippy from "tippy.js";
 
-    import tippy from 'tippy.js';
+export default {
+  props: {
+    tooltip: {
+      type: String,
+      default: "",
+    },
+  },
 
-    export default {
+  data() {
+    return {
+      tippy: tippy,
+    };
+  },
 
-        props : {
-            tooltip : {
-                type : String,
-                default : '',
-            }
-        },
-        
-        data() {
-            return {
-                tippy : tippy,
-            }
-        },
+  computed: {
+    reference() {
+      return "ref" + this._.uid;
+    },
+  },
 
-        computed : {
-            reference()
-            {
-                return 'ref' + this._.uid;
-            }
-        },
-
-        mounted() {
-            if(this.tooltip)
-                this.tippy( '#' + this.reference , {
-                    content: this.tooltip,
-                });
-        }
-    }
-
+  mounted() {
+    if (this.tooltip)
+      this.tippy("#" + this.reference, {
+        content: this.tooltip,
+      });
+  },
+};
 </script>

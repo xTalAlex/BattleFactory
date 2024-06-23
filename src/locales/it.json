@@ -1,118 +1,116 @@
 {
-   "general" : {
-      "open" : "Aperta a Tutti",
-      "requires-approval" : "Richiede Approvazione",
-      "link" : "Link Esterno",
-      "members" : "Membri Attivi",
-      "featured" : "In Evidenza",
-      "verified" : "Verificata",
-      "veteran" : "Elite",
-      "ultra" : "Esperto",
-      "name" : "Nome"
-   },
+  "general": {
+    "open": "Aperta a Tutti",
+    "requires-approval": "Richiede Approvazione",
+    "link": "Link Esterno",
+    "members": "Membri Attivi",
+    "featured": "In Evidenza",
+    "verified": "Verificata",
+    "veteran": "Elite",
+    "ultra": "Esperto",
+    "name": "Nome"
+  },
 
-   "layout" : {
-      "navbar" : {
-         "submit" : "Invia la tua Cerchia",
-         "index" : "Elenco Cerchie"
-      },
-      "footer" : {
-         "title" : "Dacci un Feedback!",
-         "subtitle" : "Scrivi in chat per qualsiasi domanda, suggerimento o problema.",
-         "first-menu" : "Link Utili",
-         "second-menu" : "Altre Risorse",
-         "menu-items" : {
-            "terms" : "Termini & Condizioni",
-            "privacy" : "Privacy Policy",
-            "contacts" : "Contatti"
-         }
+  "layout": {
+    "navbar": {
+      "submit": "Invia la tua Cerchia",
+      "index": "Elenco Cerchie"
+    },
+    "footer": {
+      "title": "Dacci un Feedback!",
+      "subtitle": "Scrivi in chat per qualsiasi domanda, suggerimento o problema.",
+      "first-menu": "Link Utili",
+      "second-menu": "Altre Risorse",
+      "menu-items": {
+        "terms": "Termini & Condizioni",
+        "privacy": "Privacy Policy",
+        "contacts": "Contatti"
       }
-   },
+    }
+  },
 
-   "alert" : {
-      "success" : {
-         "squad-submitted" : "La tua Cerchia è stata aggiunta!"
-      },
-      "error" : {
-         "generic" : "Qualcosa è andato storto. Richiesta non inviata.",
-         "validation" : "Alcune informazioni non sono valide!"
+  "alert": {
+    "success": {
+      "squad-submitted": "La tua Cerchia è stata aggiunta!"
+    },
+    "error": {
+      "generic": "Qualcosa è andato storto. Richiesta non inviata.",
+      "validation": "Alcune informazioni non sono valide!"
+    }
+  },
+
+  "modal": {
+    "confirm": {
+      "link": {
+        "title": "Vuoi andartene?",
+        "description": "Stai per essere indirizzato ad una pagina esterna.",
+        "confirm": "Vai",
+        "cancel": "Rimani"
       }
-   },
+    }
+  },
 
-   "modal" : {
-      "confirm" : {
-         "link" : {
-            "title" : "Vuoi andartene?",
-            "description" : "Stai per essere indirizzato ad una pagina esterna.",
-            "confirm" : "Vai",
-            "cancel" : "Rimani"
-         }
-      }
-   },
-   
-   "404" : {
-      "title" : "404",
-      "subtitle" : "Pagina non trovata!",
-      "button" : "Homepage"
-   },
+  "404": {
+    "title": "404",
+    "subtitle": "Pagina non trovata!",
+    "button": "Homepage"
+  },
 
-   "index" : {
-      "subtitle" : "Gioca a Pokemon Unite con la tua Cerchia",
-      "hero" : {
-         "subtitle" : "Gioca a Pokemon Unite con la tua Cerchia."
+  "index": {
+    "subtitle": "Gioca a Pokemon Unite con la tua Cerchia",
+    "hero": {
+      "subtitle": "Gioca a Pokemon Unite con la tua Cerchia."
+    },
+    "intro": {
+      "title": "Cerchie da tutto il mondo",
+      "description": "Non lasciare che il random matchup ti faccia tiltare ancora. Scegli i tuoi compagni di squadra. Qui puoi:",
+      "first-feature": "Cercare tra il nostro Elenco curato di Cerchie",
+      "second-feature": "Aggiungere la tua Cerchia all'Elenco",
+      "third-feature": "Aiutare la community dandoci il tuo Feedback"
+    },
+    "featured-squads": {
+      "title": "Cerchie in Spotlight",
+      "subtitle": "Ecco alcune cerchie in evidenza. Per vederne altre, dai un'occhiata all'<1>elenco completo</1>."
+    },
+    "cta": {
+      "title": "Sei a capo di una Cerchia?",
+      "subtitle": "Aggiungila al nostro elenco!",
+      "button": "Invia"
+    }
+  },
+
+  "squads": {
+    "index": {
+      "sorting": {
+        "latest": "Più Recenti",
+        "oldest": "Meno Recenti"
       },
-      "intro" : {
-         "title" : "Cerchie da tutto il mondo",
-         "description" : "Non lasciare che il random matchup ti faccia tiltare ancora. Scegli i tuoi compagni di squadra. Qui puoi:",
-         "first-feature" : "Cercare tra il nostro Elenco curato di Cerchie",
-         "second-feature" : "Aggiungere la tua Cerchia all'Elenco",
-         "third-feature" : "Aiutare la community dandoci il tuo Feedback"
+      "search-placeholder": "Cerca...",
+      "voicesearch-title": "Ricerca vocale",
+      "filters": {
+        "all": "Qualsiasi",
+        "search-country-placeholder": "Cerca paese...",
+        "clear": "Azzera filtri"
       },
-      "featured-squads" : {
-         "title" : "Cerchie in Spotlight",
-         "subtitle" : "Ecco alcune cerchie in evidenza. Per vederne altre, dai un'occhiata all'<1>elenco completo</1>."
-      },
-      "cta" : {
-         "title" : "Sei a capo di una Cerchia?",
-         "subtitle" : "Aggiungila al nostro elenco!",
-         "button" : "Invia"
-      }
-   },
+      "more": "Mostra altri",
+      "stats": "risultati trovati in",
+      "no-results": "Nessun risultato per"
+    },
 
-   "squads" : {
-
-      "index" : {
-         "sorting" : {
-            "latest" : "Più Recenti",
-            "oldest" : "Meno Recenti"
-         },
-         "search-placeholder" : "Cerca...",
-         "voicesearch-title" : "Ricerca vocale",
-         "filters" : {
-            "all" : "Qualsiasi",
-            "search-country-placeholder" : "Cerca paese...",
-            "clear" : "Azzera filtri"
-         },
-         "more" : "Mostra altri",
-         "stats" : "risultati trovati in",
-         "no-results" : "Nessun risultato per"
-      },
-
-      "submit" : {
-         "title" : "Invia la tua Cerchia",
-         "subtitle" : "Compila il modulo con le informazioni sulla tua Cerchia.",
-         "email" : "Email",
-         "email-hint" : "Senza un Email valida non potrai aggiornare le informazioni in seguito.",
-         "name" : "Nome della Cerchia",
-         "code" : "Codice",
-         "members" : "Membri Attivi",
-         "approval" : "Approvazione Richieste",
-         "country" : "Paese",
-         "rank" : "Rank Medio",
-         "link" : "Link (Discord, Instagram, Sito Web, ...)",
-         "description" : "Descrizione",
-         "submit" : "Invia"
-      }
-
-   }
+    "submit": {
+      "title": "Invia la tua Cerchia",
+      "subtitle": "Compila il modulo con le informazioni sulla tua Cerchia.",
+      "email": "Email",
+      "email-hint": "Senza un Email valida non potrai aggiornare le informazioni in seguito.",
+      "name": "Nome della Cerchia",
+      "code": "Codice",
+      "members": "Membri Attivi",
+      "approval": "Approvazione Richieste",
+      "country": "Paese",
+      "rank": "Rank Medio",
+      "link": "Link (Discord, Instagram, Sito Web, ...)",
+      "description": "Descrizione",
+      "submit": "Invia"
+    }
+  }
 }

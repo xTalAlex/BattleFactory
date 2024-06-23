@@ -1,105 +1,110 @@
 ---
 export interface Props {
-	subtitle?: string;
+  subtitle?: string;
 }
 
-import '@assets/styles/main.css';
+import "@assets/styles/main.css";
 
 import i18next, { t } from "i18next";
 import { localizePath } from "astro-i18next";
-import { LanguageSelector, HeadHrefLangs  } from "astro-i18next/components";
+import { LanguageSelector, HeadHrefLangs } from "astro-i18next/components";
 
 import Alert from "@components/Alert.vue";
 import Navbar from "@components/layout/Navbar.vue";
 import Footer from "@components/layout/Footer.astro";
 import ConfirmationModal from "@components/modals/ConfirmationModal.vue";
 
-import {APP_NAME} from "@utils/constants";
+import { APP_NAME } from "@utils/constants";
 
 //const ip = Astro.clientAddress;
-const { subtitle = '' } = Astro.props as Props;
-const full_title = APP_NAME + ( subtitle ? ' | ' + subtitle : '' );
+const { subtitle = "" } = Astro.props as Props;
+const full_title = APP_NAME + (subtitle ? " | " + subtitle : "");
 ---
 
 <!DOCTYPE html>
 <html lang={i18next.language} class="scroll-smooth">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="theme-color" content="#000000" />
-		<meta name="google-site-verification" content="6RO-tLKlnCNYXpbSQTxu4jeYmuwHKCt1-3wreROwSQM" />
-		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
-		<link rel="shortcut icon" href="/favicon.ico" />
-		<title>{full_title}</title>
-		<HeadHrefLangs/>
-		
-		<link
-		  rel="stylesheet"
-		  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-		/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="google-site-verification"
+      content="6RO-tLKlnCNYXpbSQTxu4jeYmuwHKCt1-3wreROwSQM"
+    />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <title>{full_title}</title>
+    <HeadHrefLangs />
 
-	</head>
-	<body class="relative font-cursive flex flex-col min-h-screen antialiased text-gray-800" id="app">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+  </head>
+  <body
+    class="relative font-cursive flex flex-col min-h-screen antialiased text-gray-800"
+    id="app"
+  >
+    <Alert client:only="vue" />
 
-		<Alert client:only="vue" />
-		
-		<Navbar client:visible
-			submitButton={ t("layout.navbar.submit") }
-			indexButton={ t("layout.navbar.index") }
-			homeUrl={ localizePath("/") }
-			submitUrl={ localizePath("/squads/submit") }
-			indexUrl={ localizePath("/squads") }
-		/>
+    <Navbar
+      client:visible
+      submitButton={t("layout.navbar.submit")}
+      indexButton={t("layout.navbar.index")}
+      homeUrl={localizePath("/")}
+      submitUrl={localizePath("/squads/submit")}
+      indexUrl={localizePath("/squads")}
+    />
 
-		<main class="flex-1 bg-secondary-100">
+    <main class="flex-1 bg-secondary-100">
+      <slot />
+    </main>
 
-			<slot/>
+    <Footer
+      title={t("layout.footer.title")}
+      subtitle={t("layout.footer.subtitle")}
+      firstMenu={t("layout.footer.first-menu")}
+      secondMenu={t("layout.footer.second-menu")}
+      termsLabel={t("layout.footer.menu-items.terms")}
+      privacyLabel={t("layout.footer.menu-items.privacy")}
+      contactsLabel={t("layout.footer.menu-items.contacts")}
+    >
+      <LanguageSelector
+        class="bg-transparent text-sm outline-none border-none"
+        showFlag={false}
+      />
+    </Footer>
 
-		</main>
+    <slot name="modals" />
 
-		<Footer
-			title={ t("layout.footer.title") }
-			subtitle={ t("layout.footer.subtitle") }
-			firstMenu={ t("layout.footer.first-menu") }
-			secondMenu={ t("layout.footer.second-menu") }
-			termsLabel={ t("layout.footer.menu-items.terms") }
-			privacyLabel={ t("layout.footer.menu-items.privacy") }
-			contactsLabel={ t("layout.footer.menu-items.contacts") }
-		>
-			<LanguageSelector class="bg-transparent text-sm outline-none border-none"
-				showFlag={false} 
-			/>
-		</Footer>
+    <ConfirmationModal client:only="vue" />
 
-		<slot name="modals"/>
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+      var Tawk_API = Tawk_API || {},
+        Tawk_LoadStart = new Date();
+      (function () {
+        var s1 = document.createElement("script"),
+          s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = "https://embed.tawk.to/630d237454f06e12d8919f47/1gbll50cb";
+        s1.charset = "UTF-8";
+        s1.setAttribute("crossorigin", "*");
+        s0.parentNode.insertBefore(s1, s0);
+      })();
+    </script>
+    <!--End of Tawk.to Script-->
 
-		<ConfirmationModal client:only="vue"/>
-
-		<!--Start of Tawk.to Script-->
-		<script type="text/javascript">
-			var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-			(function(){
-				var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-				s1.async=true;
-				s1.src='https://embed.tawk.to/630d237454f06e12d8919f47/1gbll50cb';
-				s1.charset='UTF-8';
-				s1.setAttribute('crossorigin','*');
-				s0.parentNode.insertBefore(s1,s0);
-			})();
-		</script>
-		<!--End of Tawk.to Script-->
-		
-	</body> 
-
-	<script is:inline>
-		document.notify = function notify(type,message)
-		{
-			const alertObject = {
-				type : type,
-				message : message,
-			};
-			document.dispatchEvent( new CustomEvent('alert',  { "detail": alertObject }) );
-		}
-	</script>
-
+    <script is:inline>
+      document.notify = function notify(type, message) {
+        const alertObject = {
+          type: type,
+          message: message,
+        };
+        document.dispatchEvent(
+          new CustomEvent("alert", { detail: alertObject })
+        );
+      };
+    </script>
+  </body>
 </html>

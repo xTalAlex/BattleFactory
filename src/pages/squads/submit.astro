@@ -9,44 +9,43 @@ changeLanguage("en");
 const { countries } = countriesList;
 const locale = i18next.language;
 ---
+
 <Layout subtitle="Submit Your Squad">
+  <section class="relative py-12 text-gray-600 md:py-32">
+    <div class="absolute inset-0 bg-gray-300">
+      <div
+        class="h-full w-full bg-fixed bg-cover bg-center bg-[url('/img/remoat_stadium.png')]"
+      >
+        <span
+          id="blackOverlay"
+          class="absolute w-full h-full bg-black opacity-70"></span>
+      </div>
+    </div>
 
-    <section class="relative py-12 text-gray-600 md:py-32">
-
-        <div class="absolute inset-0 bg-gray-300">
-            <div class="h-full w-full bg-fixed bg-cover bg-center bg-[url('/img/remoat_stadium.png')]">
-                <span
-                id="blackOverlay"
-                class="absolute w-full h-full bg-black opacity-70"
-                ></span> 
-            </div>
-        </div>
-
-        <div class="container flex px-5 py-20 mx-auto">
-            <SquadForm client:visible 
-                countries={countries}
-                locale={locale}
-                title={ t("squads.submit.title") }
-                subtitle={ t("squads.submit.subtitle") }
-                emailLabel={ t("squads.submit.email") }
-                emailHint={ t("squads.submit.email-hint") }
-                squadNameLabel={ t("squads.submit.name") }
-                codeLabel={ t("squads.submit.code") }
-                activeMembersLabel={ t("squads.submit.members") }
-                requiresApprovalLabel={ t("squads.submit.approval") }
-                countryLabel={ t("squads.submit.country") }
-                avgRankLabel={ t("squads.submit.rank") }
-                linkLabel={ t("squads.submit.link") }
-                descriptionLabel={ t("squads.submit.description") }
-                submitLabel={ t("squads.submit.submit") }
-                successMessage={ t("alert.success.squad-submitted") }
-                validationErrorMessage={ t("alert.error.validation") }
-                genericErrorMessage={ t("alert.error.generic") }
-                veteranLabel={ t("general.veteran") }
-                ultraLabel={ t("general.ultra") }
-            />
-        </div>
-
-    </section>
-
+    <div class="container flex px-5 py-20 mx-auto">
+      <SquadForm
+        client:visible
+        countries={countries}
+        locale={locale}
+        title={t("squads.submit.title")}
+        subtitle={t("squads.submit.subtitle")}
+        emailLabel={t("squads.submit.email")}
+        emailHint={t("squads.submit.email-hint")}
+        squadNameLabel={t("squads.submit.name")}
+        codeLabel={t("squads.submit.code")}
+        activeMembersLabel={t("squads.submit.members")}
+        requiresApprovalLabel={t("squads.submit.approval")}
+        countryLabel={t("squads.submit.country")}
+        avgRankLabel={t("squads.submit.rank")}
+        linkLabel={t("squads.submit.link")}
+        descriptionLabel={t("squads.submit.description")}
+        submitLabel={t("squads.submit.submit")}
+        successMessage={t("alert.success.squad-submitted")}
+        validationErrorMessage={t("alert.error.validation")}
+        genericErrorMessage={t("alert.error.generic")}
+        veteranLabel={t("general.veteran")}
+        ultraLabel={t("general.ultra")}
+      />
+    </div>
+  </section>
 </Layout>

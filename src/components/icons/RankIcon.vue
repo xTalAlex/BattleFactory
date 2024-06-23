@@ -1,28 +1,26 @@
 <template>
-    <img :class="sizes" :src="rankIcon" />
+  <img :class="sizes" :src="rankIcon" />
 </template>
 
 <script>
-    export default {
+export default {
+  props: {
+    rank: {
+      type: String,
+      required: true,
+    },
+    sizes: {
+      type: String,
+      default: "w-8 h-8",
+    },
+  },
 
-        props : {
-            rank : {
-                type : String,
-                required : true
-            },
-            sizes : {
-                type : String,
-                default : 'w-8 h-8',
-            }
-        },
+  setup() {},
 
-        setup() {},
-
-        computed : {
-            rankIcon(){
-                return '/img/'+ (this.rank>=1200 ? 'master' : this.rank) +'_icon.png';
-            },
-        },
-
-    }
+  computed: {
+    rankIcon() {
+      return "/img/" + (this.rank >= 1200 ? "master" : this.rank) + "_icon.png";
+    },
+  },
+};
 </script>
